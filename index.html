@@ -2331,17 +2331,17 @@
                         <div class="form-row">
                             <div>
                                 <label for="pName">Məhsul adı *</label>
-                                <input type="text" id="pName" placeholder="məs: BTS - BE Album" />
+                                <input type="text" id="pName" placeholder="məs: BTS - Young Forever" />
                             </div>
                             <div>
                                 <label for="pPrice">Qiymət (AZN) *</label>
-                                <input type="number" id="pPrice" placeholder="45" step="0.01" min="0" />
+                                <input type="number" id="pPrice" placeholder="60" step="0.01" min="0" />
                             </div>
                         </div>
                         <div class="form-row">
                             <div>
                                 <label for="pDesc">Təsvir</label>
-                                <input type="text" id="pDesc" placeholder="Qısa təsvir" />
+                                <input type="text" id="pDesc" placeholder="Albom təsviri" />
                             </div>
                             <div>
                                 <label for="pCategory">Kateqoriya</label>
@@ -2357,7 +2357,7 @@
                         <div class="form-row">
                             <div>
                                 <label for="pStock">Stok sayı *</label>
-                                <input type="number" id="pStock" placeholder="10" min="0" value="10" />
+                                <input type="number" id="pStock" placeholder="100" min="0" value="100" />
                             </div>
                             <div>
                                 <label for="pIcon">İkon (emoji)</label>
@@ -2366,12 +2366,9 @@
                         </div>
                         <div class="form-row full">
                             <div>
-                                <label>Şəkillər (çoxlu seçim)</label>
-                                <div class="file-input-wrapper">
-                                    <input type="file" id="pImages" accept="image/*" multiple />
-                                    <div class="file-list" id="pImageList"></div>
-                                </div>
-                                <small style="color:var(--text-secondary);">Bir neçə şəkil seçə bilərsiniz. İlk şəkil əsas şəkil olacaq.</small>
+                                <label>Şəkillər (fayl adları vergüllə)</label>
+                                <input type="text" id="pImageNames" placeholder="byf1.jpg, byf2.jpg, byf3.jpg" />
+                                <small style="color:var(--text-secondary);">Şəkil fayllarının adlarını vergüllə yazın (boşluq olmadan).</small>
                             </div>
                         </div>
                         <div class="form-row full">
@@ -2498,7 +2495,6 @@
                 container.innerHTML = '<span class="discount-item">🏷️ Hazırda endirimli məhsul yoxdur</span>';
                 return;
             }
-            // Duplicate items for seamless loop
             let items = [];
             for (let i = 0; i < 3; i++) {
                 discountProducts.forEach(p => {
@@ -2554,66 +2550,47 @@
         const STORAGE_KEY_RULES = 'purple_rules';
         const STORAGE_KEY_CART = 'purple_cart';
 
+        // ===== 4 BTS Albums (user provided) =====
         const defaultProducts = [{
             id: 'p1',
-            name: 'BTS – BE (Deluxe Edition)',
-            price: 65,
-            desc: 'Orijinal BTS albomu, fotokitabça + poster',
+            name: 'BTS - Young Forever',
+            price: 60,
+            desc: 'Alboma daxildir: Cover + Photobook + 2 ədəd CD + Poster + Random Photocard (2 Versiyadır: Day & Night)',
             icon: '💿',
             category: 'album',
-            stock: 8,
-            images: [],
-            discount: 10
+            stock: 100,
+            images: ['byf1.jpg', 'byf2.jpg', 'byf3.jpg', 'byf4.jpg', 'byf5.jpg'],
+            discount: 0
         }, {
             id: 'p2',
-            name: 'BLACKPINK – THE ALBUM',
-            price: 55,
-            desc: 'BLACKPINK tam albom, 2 versiya',
-            icon: '🖤',
+            name: 'BTS\' 4th Mini Album - IN THE MOOD',
+            price: 60,
+            desc: 'Daxildir: Photobook + CD + Random Photocard + (2 versiyadır - Blue + Peach)',
+            icon: '💿',
             category: 'album',
-            stock: 0,
-            images: [],
+            stock: 100,
+            images: ['bdma1.jpg', 'bdma2.jpg', 'bdma3.jpg'],
             discount: 0
         }, {
             id: 'p3',
-            name: 'BT21 Plush Set',
-            price: 45,
-            desc: 'BT21 peluş dəsti (7 ədəd)',
-            icon: '🧸',
-            category: 'peluşlar',
-            stock: 3,
-            images: [],
-            discount: 15
-        }, {
-            id: 'p4',
-            name: 'BTS Poster Set (5 ədəd)',
-            price: 25,
-            desc: '5 fərqli BTS posteri, A2 ölçü',
-            icon: '🖼️',
-            category: 'merch',
-            stock: 10,
-            images: [],
+            name: 'BTS\' 2nd Special Album - You Never Walk Alone',
+            price: 60,
+            desc: 'Daxildir: Photobook + CD + Random Photocard + 2 Versiya (Left və Right)',
+            icon: '💿',
+            category: 'album',
+            stock: 100,
+            images: ['ynwa1.jpg', 'ynwa2.jpg', 'ynwa3.jpg'],
             discount: 0
         }, {
-            id: 'p5',
-            name: 'BLACKPINK Poster (Born Pink)',
-            price: 12,
-            desc: 'Born Pink turu posteri, yüksək keyfiyyət',
-            icon: '🖼️',
-            category: 'merch',
-            stock: 15,
-            images: [],
-            discount: 5
-        }, {
-            id: 'p6',
-            name: 'BTS + BLACKPINK Kart Dəsti',
-            price: 120,
-            desc: 'BTS BE + BLACKPINK THE ALBUM + posterlər',
-            icon: '🃏',
-            category: 'kartlar',
-            stock: 2,
-            images: [],
-            discount: 20
+            id: 'p4',
+            name: 'BTS\' 3rd Mini Album - IN THE MOOD FOR LOVE PT.1',
+            price: 60,
+            desc: 'Alboma daxildir: Photobook + CD + Random Photocard + 2 Versiya (Pink və White)',
+            icon: '💿',
+            category: 'album',
+            stock: 100,
+            images: ['uma1.jpg', 'uma2.jpg', 'uma3.jpg'],
+            discount: 0
         }];
 
         function loadData(key, defaultVal) {
@@ -2671,11 +2648,11 @@
         const songName = document.getElementById('songName');
         const musicNotes = document.getElementById('musicNotes');
 
-        // Path: mp3/swim.mp3, mp3/magicshop.mp3, mp3/mikrokosmos.mp3
+        // MP3 files are in root folder (no mp3/ prefix)
         const songFiles = [
-            'mp3/swim.mp3',
-            'mp3/magicshop.mp3',
-            'mp3/mikrokosmos.mp3'
+            'swim.mp3',
+            'magicshop.mp3',
+            'mikrokosmos.mp3'
         ];
         let currentSongIndex = 0;
         let isPlaying = false;
@@ -2731,7 +2708,6 @@
                 })
                 .catch(err => {
                     console.warn('Audio error:', err);
-                    // Try next song after delay
                     setTimeout(() => {
                         currentSongIndex = (currentSongIndex + 1) % songFiles.length;
                         playSong(currentSongIndex);
@@ -2739,7 +2715,6 @@
                 });
         }
 
-        // Auto-start with swim.mp3 on page load
         window.addEventListener('load', function() {
             setTimeout(() => {
                 if (songFiles.length > 0 && !isPlaying) {
@@ -2767,7 +2742,6 @@
                 }, 2000);
                 stopNotes();
             } else {
-                // Resume or start next
                 if (audio.src) {
                     audio.play().then(() => {
                         isPlaying = true;
@@ -2799,7 +2773,7 @@
         });
 
         // ==========================================
-        // CART FUNCTIONS
+        // CART FUNCTIONS (with discount support)
         // ==========================================
         function updateCartBadge() {
             const badge = document.getElementById('cartBadge');
@@ -2817,6 +2791,14 @@
             return item ? item.quantity : 0;
         }
 
+        function getEffectivePrice(product) {
+            if (!product) return 0;
+            if (product.discount && product.discount > 0) {
+                return product.price * (1 - product.discount / 100);
+            }
+            return product.price;
+        }
+
         function renderCart() {
             const container = document.getElementById('cartItems');
             const totalEl = document.getElementById('cartTotal');
@@ -2831,16 +2813,18 @@
             cart.forEach(item => {
                 const product = products.find(p => p.id === item.id);
                 if (!product) return;
-                const price = product.price * item.quantity;
+                const effectivePrice = getEffectivePrice(product);
+                const price = effectivePrice * item.quantity;
                 total += price;
                 const stock = product.stock;
+                const showDiscount = product.discount && product.discount > 0;
                 html += `
                     <div class="cart-item">
                         <div class="item-info">
                             <span class="item-icon">${product.icon || '💿'}</span>
                             <div>
                                 <div class="item-name">${product.name}</div>
-                                <div class="item-price">${product.price} AZN</div>
+                                <div class="item-price">${showDiscount ? `<span style="text-decoration:line-through; opacity:0.6; font-size:0.75rem;">${product.price} AZN</span> ${effectivePrice.toFixed(2)} AZN` : `${effectivePrice.toFixed(2)} AZN`}</div>
                             </div>
                         </div>
                         <div class="item-qty">
@@ -2939,11 +2923,12 @@
             }
             const items = cart.map(item => {
                 const product = products.find(p => p.id === item.id);
-                return `${product.icon || '💿'} ${product.name} (${item.quantity} ədəd)`;
+                const effPrice = getEffectivePrice(product);
+                return `${product.icon || '💿'} ${product.name} (${item.quantity} ədəd) - ${(effPrice * item.quantity).toFixed(2)} AZN`;
             }).join('\n');
             const total = cart.reduce((sum, item) => {
                 const product = products.find(p => p.id === item.id);
-                return sum + (product ? product.price * item.quantity : 0);
+                return sum + (product ? getEffectivePrice(product) * item.quantity : 0);
             }, 0);
 
             const message =
@@ -3366,6 +3351,7 @@
             document.getElementById('editRuleId').value = '';
             document.getElementById('pImages').value = '';
             document.getElementById('pImageList').innerHTML = '';
+            document.getElementById('pImageNames').value = '';
             if (isAdminLoggedIn()) {
                 adminLogin.style.display = 'none';
                 adminDashboard.classList.add('active');
@@ -3432,7 +3418,7 @@
         });
 
         // ==========================================
-        // PRODUCT CRUD
+        // PRODUCT CRUD (with image names support)
         // ==========================================
         const productForm = document.getElementById('productForm');
         const editProductId = document.getElementById('editProductId');
@@ -3442,47 +3428,13 @@
         const pCategory = document.getElementById('pCategory');
         const pStock = document.getElementById('pStock');
         const pIcon = document.getElementById('pIcon');
-        const pImages = document.getElementById('pImages');
-        const pImageList = document.getElementById('pImageList');
+        const pImageNames = document.getElementById('pImageNames');
         const pDiscount = document.getElementById('pDiscount');
         const saveProductBtn = document.getElementById('saveProductBtn');
         const cancelProductFormBtn = document.getElementById('cancelProductFormBtn');
         const showAddProductForm = document.getElementById('showAddProductForm');
 
         let isEditingProduct = false;
-        let tempImageFiles = [];
-
-        pImages.addEventListener('change', function() {
-            const files = Array.from(this.files);
-            tempImageFiles = files;
-            pImageList.innerHTML = files.map((f, idx) =>
-                `<span class="file-tag">🖼️ ${f.name} <span class="remove-file" data-index="${idx}">&times;</span></span>`
-            ).join('');
-            pImageList.querySelectorAll('.remove-file').forEach(el => {
-                el.addEventListener('click', function() {
-                    const idx = parseInt(this.dataset.index);
-                    tempImageFiles.splice(idx, 1);
-                    const dt = new DataTransfer();
-                    tempImageFiles.forEach(f => dt.items.add(f));
-                    pImages.files = dt.files;
-                    pImageList.innerHTML = tempImageFiles.map((f, i) =>
-                        `<span class="file-tag">🖼️ ${f.name} <span class="remove-file" data-index="${i}">&times;</span></span>`
-                    ).join('');
-                    pImageList.querySelectorAll('.remove-file').forEach(el2 => {
-                        el2.addEventListener('click', function() {
-                            const idx2 = parseInt(this.dataset.index);
-                            tempImageFiles.splice(idx2, 1);
-                            const dt2 = new DataTransfer();
-                            tempImageFiles.forEach(f => dt2.items.add(f));
-                            pImages.files = dt2.files;
-                            pImageList.innerHTML = tempImageFiles.map((f, i) =>
-                                `<span class="file-tag">🖼️ ${f.name} <span class="remove-file" data-index="${i}">&times;</span></span>`
-                            ).join('');
-                        });
-                    });
-                });
-            });
-        });
 
         function resetProductForm() {
             editProductId.value = '';
@@ -3490,12 +3442,10 @@
             pPrice.value = '';
             pDesc.value = '';
             pCategory.value = 'album';
-            pStock.value = '10';
+            pStock.value = '100';
             pIcon.value = '💿';
             pDiscount.value = '0';
-            pImages.value = '';
-            pImageList.innerHTML = '';
-            tempImageFiles = [];
+            pImageNames.value = '';
             isEditingProduct = false;
             document.getElementById('productFormTitle').textContent = '➕ Yeni məhsul';
             productForm.classList.remove('active');
@@ -3517,68 +3467,53 @@
             const stock = parseInt(pStock.value) || 0;
             const icon = pIcon.value.trim() || '💿';
             const discount = parseInt(pDiscount.value) || 0;
+            const imageNames = pImageNames.value.split(',').map(s => s.trim()).filter(s => s);
 
             if (!name || isNaN(price) || price < 0 || stock < 0) {
                 alert('Ad, düzgün qiymət (rəqəm) və stok sayı (0 və ya daha çox) daxil edin!');
                 return;
             }
 
-            const imagePromises = [];
-            if (tempImageFiles.length > 0) {
-                for (let file of tempImageFiles) {
-                    const promise = new Promise((resolve) => {
-                        const reader = new FileReader();
-                        reader.onload = function(e) {
-                            resolve(e.target.result);
-                        };
-                        reader.readAsDataURL(file);
-                    });
-                    imagePromises.push(promise);
-                }
-            }
-
-            Promise.all(imagePromises).then((images) => {
-                if (isEditingProduct) {
-                    const id = editProductId.value;
-                    const idx = products.findIndex(p => p.id === id);
-                    if (idx !== -1) {
-                        products[idx] = {
-                            ...products[idx],
-                            name,
-                            price,
-                            desc,
-                            category,
-                            stock,
-                            icon,
-                            images: images.length > 0 ? images : products[idx].images,
-                            discount: discount
-                        };
-                        saveData(STORAGE_KEY_PRODUCTS, products);
-                        renderAll();
-                        resetProductForm();
-                        closeAdminPanel();
-                        openDetail(id);
-                    }
-                } else {
-                    const newProduct = {
-                        id: generateId(),
+            if (isEditingProduct) {
+                const id = editProductId.value;
+                const idx = products.findIndex(p => p.id === id);
+                if (idx !== -1) {
+                    products[idx] = {
+                        ...products[idx],
                         name,
                         price,
                         desc,
                         category,
                         stock,
                         icon,
-                        images: images || [],
-                        discount: discount
+                        images: imageNames.length > 0 ? imageNames : products[idx].images,
+                        discount
                     };
-                    products.push(newProduct);
                     saveData(STORAGE_KEY_PRODUCTS, products);
                     renderAll();
                     resetProductForm();
                     closeAdminPanel();
-                    openDetail(newProduct.id);
+                    openDetail(id);
                 }
-            });
+            } else {
+                const newProduct = {
+                    id: generateId(),
+                    name,
+                    price,
+                    desc,
+                    category,
+                    stock,
+                    icon,
+                    images: imageNames,
+                    discount
+                };
+                products.push(newProduct);
+                saveData(STORAGE_KEY_PRODUCTS, products);
+                renderAll();
+                resetProductForm();
+                closeAdminPanel();
+                openDetail(newProduct.id);
+            }
         });
 
         document.addEventListener('click', (e) => {
@@ -3596,13 +3531,7 @@
                 pStock.value = product.stock || 0;
                 pIcon.value = product.icon || '💿';
                 pDiscount.value = product.discount || 0;
-                pImageList.innerHTML = '';
-                tempImageFiles = [];
-                if (product.images && product.images.length > 0) {
-                    pImageList.innerHTML = product.images.map((img, idx) =>
-                        `<span class="file-tag">🖼️ Şəkil ${idx+1}</span>`
-                    ).join('');
-                }
+                pImageNames.value = (product.images || []).join(', ');
                 document.getElementById('productFormTitle').textContent = '✏️ Məhsulu düzənlə';
                 productForm.classList.add('active');
                 pName.focus();
@@ -3855,12 +3784,11 @@
         console.log('🔑 Admin girişi: footer-da "Universe" sözünə klikləyin.');
         console.log('🔑 İstifadəçi adı: puays2026puays, Şifrə: puays2026puays');
         console.log('🛍️ Məhsulları səbətə əlavə edin və sifariş edin!');
-        console.log('🎵 swim.mp3 avtomatik oxuyur.');
-        console.log('📁 MP3 faylları "mp3/" qovluğunda: swim.mp3, magicshop.mp3, mikrokosmos.mp3');
-        console.log('🏷️ Endirim çubuğu sürüşür və sabitdir.');
-        console.log('🐾 Pişikdən pati emojisi çölə çıxır.');
-        console.log('🎵 Nota emojiləri avtomatik olaraq ürəyin üstündən qalxır.');
-        console.log('❌ Üçbucaq işarəsi tamamilə silindi.');
+        console.log('🎵 swim.mp3 avtomatik oxuyur (root qovluğunda).');
+        console.log('📁 MP3 faylları root-da: swim.mp3, magicshop.mp3, mikrokosmos.mp3');
+        console.log('🖼️ Hər məhsula şəkil fayllarının adlarını vergüllə yazın.');
+        console.log('💰 Endirimli məhsullar səbətdə endirimli qiymətlə hesablanır.');
+        console.log('📦 4 BTS albomu əlavə edildi.');
     </script>
 </body>
 </html>
