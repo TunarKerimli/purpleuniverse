@@ -898,19 +898,6 @@
             font-size: 1.1rem;
             margin-bottom: 4px;
         }
-        .product-card .product-stock {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            margin-bottom: 10px;
-        }
-        .product-card .product-stock .in-stock {
-            color: #2e7d32;
-            font-weight: 600;
-        }
-        .product-card .product-stock .out-of-stock {
-            color: #c62828;
-            font-weight: 600;
-        }
         .product-card .product-tag {
             display: inline-block;
             background: var(--pink-100);
@@ -1055,10 +1042,6 @@
             font-size: 1.3rem;
             font-weight: 700;
             color: var(--pink-600);
-            margin-bottom: 8px;
-        }
-        .detail-panel .detail-info .detail-stock {
-            font-size: 0.9rem;
             margin-bottom: 8px;
         }
         .detail-panel .detail-info .detail-desc {
@@ -2080,7 +2063,6 @@
                 </div>
                 <span class="filter-label" style="margin-left:12px;"><i class="fas fa-sort-amount-down"></i> Sırala:</span>
                 <select id="sortSelect">
-                    <option value="stock-desc">Stok (çoxdan aza)</option>
                     <option value="price-asc">Ən ucuz</option>
                     <option value="price-desc">Ən bahalı</option>
                 </select>
@@ -2356,19 +2338,12 @@
                         </div>
                         <div class="form-row">
                             <div>
-                                <label for="pStock">Stok sayı *</label>
-                                <input type="number" id="pStock" placeholder="100" min="0" value="100" />
-                            </div>
-                            <div>
                                 <label for="pIcon">İkon (emoji)</label>
                                 <input type="text" id="pIcon" placeholder="🎤" value="💿" />
                             </div>
-                        </div>
-                        <div class="form-row full">
                             <div>
-                                <label>Şəkillər (fayl adları vergüllə)</label>
+                                <label for="pImageNames">Şəkillər (fayl adları vergüllə)</label>
                                 <input type="text" id="pImageNames" placeholder="byf1.jpg, byf2.jpg, byf3.jpg" />
-                                <small style="color:var(--text-secondary);">Şəkil fayllarının adlarını vergüllə yazın (boşluq olmadan).</small>
                             </div>
                         </div>
                         <div class="form-row full">
@@ -2490,7 +2465,7 @@
         // ==========================================
         function updateDiscountBar() {
             const container = document.getElementById('discountText');
-            const discountProducts = products.filter(p => p.discount && p.discount > 0 && p.stock > 0);
+            const discountProducts = products.filter(p => p.discount && p.discount > 0);
             if (discountProducts.length === 0) {
                 container.innerHTML = '<span class="discount-item">🏷️ Hazırda endirimli məhsul yoxdur</span>';
                 return;
@@ -2498,7 +2473,7 @@
             let items = [];
             for (let i = 0; i < 3; i++) {
                 discountProducts.forEach(p => {
-                    const newPrice = (p.price * (1 - p.discount/100)).toFixed(2);
+                    const newPrice = (p.price * (1 - p.discount / 100)).toFixed(2);
                     items.push(`
                         <span class="discount-item">
                             ${p.icon || '💿'} ${p.name}
@@ -2517,12 +2492,12 @@
         // ==========================================
         function updateDiscountMenu() {
             const container = document.getElementById('discountItems');
-            const discountProducts = products.filter(p => p.discount && p.discount > 0 && p.stock > 0);
+            const discountProducts = products.filter(p => p.discount && p.discount > 0);
             if (discountProducts.length === 0) {
                 container.innerHTML = '<span class="discount-tag">Hazırda yoxdur</span>';
                 return;
             }
-            container.innerHTML = discountProducts.map(p => 
+            container.innerHTML = discountProducts.map(p =>
                 `<span class="discount-tag">🔥 ${p.name} - ${p.discount}%</span>`
             ).join('');
         }
@@ -2550,7 +2525,6 @@
         const STORAGE_KEY_RULES = 'purple_rules';
         const STORAGE_KEY_CART = 'purple_cart';
 
-        // ===== 4 BTS Albums (user provided) =====
         const defaultProducts = [{
             id: 'p1',
             name: 'BTS - Young Forever',
@@ -2558,7 +2532,6 @@
             desc: 'Alboma daxildir: Cover + Photobook + 2 ədəd CD + Poster + Random Photocard (2 Versiyadır: Day & Night)',
             icon: '💿',
             category: 'album',
-            stock: 100,
             images: ['byf1.jpg', 'byf2.jpg', 'byf3.jpg', 'byf4.jpg', 'byf5.jpg'],
             discount: 0
         }, {
@@ -2568,7 +2541,6 @@
             desc: 'Daxildir: Photobook + CD + Random Photocard + (2 versiyadır - Blue + Peach)',
             icon: '💿',
             category: 'album',
-            stock: 100,
             images: ['bdma1.jpg', 'bdma2.jpg', 'bdma3.jpg'],
             discount: 0
         }, {
@@ -2578,7 +2550,6 @@
             desc: 'Daxildir: Photobook + CD + Random Photocard + 2 Versiya (Left və Right)',
             icon: '💿',
             category: 'album',
-            stock: 100,
             images: ['ynwa1.jpg', 'ynwa2.jpg', 'ynwa3.jpg'],
             discount: 0
         }, {
@@ -2588,7 +2559,6 @@
             desc: 'Alboma daxildir: Photobook + CD + Random Photocard + 2 Versiya (Pink və White)',
             icon: '💿',
             category: 'album',
-            stock: 100,
             images: ['uma1.jpg', 'uma2.jpg', 'uma3.jpg'],
             discount: 0
         }];
@@ -2601,7 +2571,6 @@
                     data = data.map(p => ({
                         ...p,
                         price: typeof p.price === 'string' ? parseFloat(p.price.replace(/[^0-9.]/g, '')) : p.price,
-                        stock: p.stock || 0,
                         images: p.images || [],
                         discount: p.discount || 0
                     }));
@@ -2636,7 +2605,7 @@
 
         let cart = loadData(STORAGE_KEY_CART, []);
         let activeCategory = 'all';
-        let sortOption = 'stock-desc';
+        let sortOption = 'price-asc';
         let currentProductId = null;
 
         // ==========================================
@@ -2648,7 +2617,6 @@
         const songName = document.getElementById('songName');
         const musicNotes = document.getElementById('musicNotes');
 
-        // MP3 files are in root folder (no mp3/ prefix)
         const songFiles = [
             'swim.mp3',
             'magicshop.mp3',
@@ -2693,7 +2661,7 @@
             }
             const file = songFiles[index];
             const displayName = file.split('/').pop().replace('.mp3', '').replace(/_/g, ' ').replace(/\b\w/g, l => l
-            .toUpperCase());
+                .toUpperCase());
             audio.src = file;
             audio.load();
             audio.play()
@@ -2773,22 +2741,12 @@
         });
 
         // ==========================================
-        // CART FUNCTIONS (with discount support)
+        // CART FUNCTIONS (with discount support, no stock)
         // ==========================================
         function updateCartBadge() {
             const badge = document.getElementById('cartBadge');
             const total = cart.reduce((sum, item) => sum + item.quantity, 0);
             badge.textContent = total;
-        }
-
-        function getProductStock(productId) {
-            const product = products.find(p => p.id === productId);
-            return product ? product.stock : 0;
-        }
-
-        function getCartQuantity(productId) {
-            const item = cart.find(i => i.id === productId);
-            return item ? item.quantity : 0;
         }
 
         function getEffectivePrice(product) {
@@ -2816,7 +2774,6 @@
                 const effectivePrice = getEffectivePrice(product);
                 const price = effectivePrice * item.quantity;
                 total += price;
-                const stock = product.stock;
                 const showDiscount = product.discount && product.discount > 0;
                 html += `
                     <div class="cart-item">
@@ -2830,7 +2787,7 @@
                         <div class="item-qty">
                             <button class="qty-dec" data-id="${item.id}">−</button>
                             <span class="qty-num">${item.quantity}</span>
-                            <button class="qty-inc" data-id="${item.id}" ${item.quantity >= stock ? 'disabled' : ''}>+</button>
+                            <button class="qty-inc" data-id="${item.id}">+</button>
                         </div>
                         <button class="remove-btn" data-id="${item.id}"><i class="fas fa-times"></i></button>
                     </div>
@@ -2843,9 +2800,8 @@
             document.querySelectorAll('.qty-inc').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const id = this.dataset.id;
-                    const product = products.find(p => p.id === id);
                     const item = cart.find(i => i.id === id);
-                    if (item && product && item.quantity < product.stock) {
+                    if (item) {
                         item.quantity += 1;
                         saveData(STORAGE_KEY_CART, cart);
                         renderCart();
@@ -2883,18 +2839,9 @@
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
             if (!product) return;
-            if (product.stock <= 0) {
-                alert('Bu məhsul hazırda yoxdur!');
-                return;
-            }
             const existing = cart.find(item => item.id === productId);
             if (existing) {
-                if (existing.quantity < product.stock) {
-                    existing.quantity += 1;
-                } else {
-                    alert('Stokda bu qədər məhsul yoxdur!');
-                    return;
-                }
+                existing.quantity += 1;
             } else {
                 cart.push({ id: productId, quantity: 1 });
             }
@@ -2956,21 +2903,10 @@
             if (activeCategory !== 'all') {
                 filtered = filtered.filter(p => p.category === activeCategory);
             }
-            if (sortOption === 'stock-desc') {
-                filtered = [...filtered].sort((a, b) => {
-                    if (a.stock === 0 && b.stock === 0) return 0;
-                    if (a.stock === 0) return 1;
-                    if (b.stock === 0) return -1;
-                    return b.stock - a.stock;
-                });
-            } else if (sortOption === 'price-asc') {
-                const inStock = filtered.filter(p => p.stock > 0).sort((a, b) => a.price - b.price);
-                const outOfStock = filtered.filter(p => p.stock === 0);
-                filtered = [...inStock, ...outOfStock];
+            if (sortOption === 'price-asc') {
+                filtered = [...filtered].sort((a, b) => a.price - b.price);
             } else if (sortOption === 'price-desc') {
-                const inStock = filtered.filter(p => p.stock > 0).sort((a, b) => b.price - a.price);
-                const outOfStock = filtered.filter(p => p.stock === 0);
-                filtered = [...inStock, ...outOfStock];
+                filtered = [...filtered].sort((a, b) => b.price - a.price);
             }
             return filtered;
         }
@@ -2984,12 +2920,10 @@
             } else {
                 grid.innerHTML = filtered.map(p => {
                     const inCart = cart.some(item => item.id === p.id);
-                    const qtyInCart = getCartQuantity(p.id);
-                    const stock = p.stock || 0;
-                    const outOfStock = stock <= 0 || (inCart && qtyInCart >= stock);
+                    const qtyInCart = cart.find(item => item.id === p.id)?.quantity || 0;
                     const thumbImage = p.images && p.images.length > 0 ? p.images[0] : null;
                     const discount = p.discount || 0;
-                    const discountedPrice = discount > 0 ? (p.price * (1 - discount/100)).toFixed(2) : null;
+                    const discountedPrice = discount > 0 ? (p.price * (1 - discount / 100)).toFixed(2) : null;
                     return `
                         <div class="product-card fade-up" data-id="${p.id}">
                             ${discount > 0 ? `<span class="discount-badge">-${discount}%</span>` : ''}
@@ -2997,11 +2931,10 @@
                             <h4>${p.name}</h4>
                             <p class="product-desc">${p.desc || ''}</p>
                             <p class="product-price">${discountedPrice ? `<span style="text-decoration:line-through; color:var(--text-secondary); font-size:0.9rem;">${p.price} AZN</span> ${discountedPrice} AZN` : `${p.price} AZN`}</p>
-                            <p class="product-stock">${stock > 0 ? `<span class="in-stock">✅ Stokda: ${stock} ədəd</span>` : `<span class="out-of-stock">❌ Yoxdur</span>`}</p>
                             <span class="product-tag">${p.category || 'Məhsul'}</span>
-                            <button class="add-to-cart-btn ${inCart ? 'in-cart' : ''}" data-id="${p.id}" ${outOfStock ? 'disabled' : ''}>
+                            <button class="add-to-cart-btn ${inCart ? 'in-cart' : ''}" data-id="${p.id}">
                                 <i class="fas ${inCart ? 'fa-check' : 'fa-plus'}"></i>
-                                ${inCart ? `Səbətdə (${qtyInCart})` : (outOfStock ? 'Yoxdur' : 'Səbətə əlavə et')}
+                                ${inCart ? `Səbətdə (${qtyInCart})` : 'Səbətə əlavə et'}
                             </button>
                             <div class="click-hint">👆 Ətraflı bax</div>
                         </div>
@@ -3017,9 +2950,7 @@
                 btn.addEventListener('click', function(e) {
                     e.stopPropagation();
                     const id = this.dataset.id;
-                    if (!this.disabled) {
-                        addToCart(id);
-                    }
+                    addToCart(id);
                 });
             });
 
@@ -3047,11 +2978,8 @@
             const content = document.getElementById('detailContent');
 
             const images = product.images || [];
-            const stock = product.stock || 0;
-            const qtyInCart = getCartQuantity(productId);
-            const outOfStock = stock <= 0 || (qtyInCart >= stock);
             const discount = product.discount || 0;
-            const discountedPrice = discount > 0 ? (product.price * (1 - discount/100)).toFixed(2) : null;
+            const discountedPrice = discount > 0 ? (product.price * (1 - discount / 100)).toFixed(2) : null;
 
             let mainImageHtml = '';
             let galleryHtml = '';
@@ -3071,13 +2999,12 @@
                 <div class="detail-info">
                     <h2>${product.name}</h2>
                     <p class="detail-price">${discountedPrice ? `<span style="text-decoration:line-through; color:var(--text-secondary); font-size:1rem;">${product.price} AZN</span> ${discountedPrice} AZN ${discount > 0 ? `<span style="background:var(--pink-600); color:#fff; padding:2px 10px; border-radius:40px; font-size:0.7rem;">-${discount}%</span>` : ''}` : `${product.price} AZN`}</p>
-                    <p class="detail-stock">${stock > 0 ? `✅ Stokda: ${stock} ədəd` : '❌ Hazırda yoxdur'}</p>
                     <p class="detail-desc">${product.desc || 'Məhsul haqqında ətraflı məlumat yoxdur.'}</p>
                     <span class="detail-tag">${product.category || 'Məhsul'}</span>
                 </div>
                 <div class="detail-actions">
-                    <button class="btn-sm btn-primary add-to-cart-detail" data-id="${product.id}" ${outOfStock ? 'disabled' : ''}>
-                        <i class="fas fa-plus"></i> ${outOfStock ? 'Yoxdur' : 'Səbətə əlavə et'}
+                    <button class="btn-sm btn-primary add-to-cart-detail" data-id="${product.id}">
+                        <i class="fas fa-plus"></i> Səbətə əlavə et
                     </button>
                     <button class="btn-sm btn-cancel detail-close-btn">Bağla</button>
                 </div>
@@ -3088,18 +3015,10 @@
 
             content.querySelector('.detail-close-btn').addEventListener('click', closeDetail);
             const addBtn = content.querySelector('.add-to-cart-detail');
-            if (addBtn && !addBtn.disabled) {
+            if (addBtn) {
                 addBtn.addEventListener('click', function() {
                     const id = this.dataset.id;
                     addToCart(id);
-                    const product = products.find(p => p.id === id);
-                    if (product) {
-                        const qty = getCartQuantity(id);
-                        if (qty >= product.stock) {
-                            this.disabled = true;
-                            this.innerHTML = '<i class="fas fa-check"></i> Stok bitdi';
-                        }
-                    }
                     renderProducts();
                 });
             }
@@ -3131,7 +3050,7 @@
                     <div class="item-info">
                         <span class="item-icon">${p.icon || '💿'}</span>
                         <span class="item-name">${p.name}</span>
-                        <span class="item-detail">${p.price} AZN · Stok: ${p.stock || 0} · ${p.category || 'Məhsul'} ${p.discount > 0 ? `· 🔥${p.discount}%` : ''}</span>
+                        <span class="item-detail">${p.price} AZN · ${p.category || 'Məhsul'} ${p.discount > 0 ? `· 🔥${p.discount}%` : ''}</span>
                     </div>
                     <div class="item-actions">
                         <button class="btn-sm btn-edit edit-product-btn" data-id="${p.id}"><i class="fas fa-pen"></i></button>
@@ -3183,7 +3102,7 @@
         function renderAdminDiscountList() {
             const list = document.getElementById('adminDiscountList');
             if (!list) return;
-            const discountProducts = products.filter(p => p.discount && p.discount > 0 && p.stock > 0);
+            const discountProducts = products.filter(p => p.discount && p.discount > 0);
             if (!discountProducts.length) {
                 list.innerHTML = `<p style="color:var(--text-secondary); padding:16px 0; text-align:center;">Hazırda endirimli məhsul yoxdur.</p>`;
                 document.getElementById('discountCount').textContent = '0 endirimli məhsul';
@@ -3418,7 +3337,7 @@
         });
 
         // ==========================================
-        // PRODUCT CRUD (with image names support)
+        // PRODUCT CRUD (with image names support, no stock)
         // ==========================================
         const productForm = document.getElementById('productForm');
         const editProductId = document.getElementById('editProductId');
@@ -3426,7 +3345,6 @@
         const pPrice = document.getElementById('pPrice');
         const pDesc = document.getElementById('pDesc');
         const pCategory = document.getElementById('pCategory');
-        const pStock = document.getElementById('pStock');
         const pIcon = document.getElementById('pIcon');
         const pImageNames = document.getElementById('pImageNames');
         const pDiscount = document.getElementById('pDiscount');
@@ -3442,7 +3360,6 @@
             pPrice.value = '';
             pDesc.value = '';
             pCategory.value = 'album';
-            pStock.value = '100';
             pIcon.value = '💿';
             pDiscount.value = '0';
             pImageNames.value = '';
@@ -3464,13 +3381,12 @@
             const price = parseFloat(pPrice.value);
             const desc = pDesc.value.trim();
             const category = pCategory.value;
-            const stock = parseInt(pStock.value) || 0;
             const icon = pIcon.value.trim() || '💿';
             const discount = parseInt(pDiscount.value) || 0;
             const imageNames = pImageNames.value.split(',').map(s => s.trim()).filter(s => s);
 
-            if (!name || isNaN(price) || price < 0 || stock < 0) {
-                alert('Ad, düzgün qiymət (rəqəm) və stok sayı (0 və ya daha çox) daxil edin!');
+            if (!name || isNaN(price) || price < 0) {
+                alert('Ad və düzgün qiymət (rəqəm) daxil edin!');
                 return;
             }
 
@@ -3484,7 +3400,6 @@
                         price,
                         desc,
                         category,
-                        stock,
                         icon,
                         images: imageNames.length > 0 ? imageNames : products[idx].images,
                         discount
@@ -3502,7 +3417,6 @@
                     price,
                     desc,
                     category,
-                    stock,
                     icon,
                     images: imageNames,
                     discount
@@ -3528,7 +3442,6 @@
                 pPrice.value = product.price;
                 pDesc.value = product.desc || '';
                 pCategory.value = product.category || 'album';
-                pStock.value = product.stock || 0;
                 pIcon.value = product.icon || '💿';
                 pDiscount.value = product.discount || 0;
                 pImageNames.value = (product.images || []).join(', ');
@@ -3789,6 +3702,7 @@
         console.log('🖼️ Hər məhsula şəkil fayllarının adlarını vergüllə yazın.');
         console.log('💰 Endirimli məhsullar səbətdə endirimli qiymətlə hesablanır.');
         console.log('📦 4 BTS albomu əlavə edildi.');
+        console.log('❌ Stok sistemi tamamilə silindi.');
     </script>
 </body>
 </html>
