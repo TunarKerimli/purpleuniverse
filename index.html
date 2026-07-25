@@ -1,0 +1,3866 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PurpleUniverse ✨ K-pop Merch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #ffffff;
+            --bg-hero: linear-gradient(160deg, #fff5f5 0%, #ffe8e8 40%, #ffd6d6 100%);
+            --bg-products: #ffffff;
+            --bg-media: #fff5f5;
+            --bg-about: #ffffff;
+            --bg-social: #fff5f5;
+            --bg-cta: linear-gradient(135deg, #ffe8e8, #ffd6d6);
+            --bg-footer: #1a0a0a;
+            --text-primary: #1a0a0a;
+            --text-secondary: #6b4a4a;
+            --text-footer: rgba(255,255,255,0.7);
+            --card-bg: #ffffff;
+            --card-border: #f0e8e8;
+            --shadow: 0 2px 12px rgba(160, 80, 80, 0.12);
+            --shadow-md: 0 8px 32px rgba(160, 80, 80, 0.18);
+            --shadow-lg: 0 16px 56px rgba(160, 80, 80, 0.22);
+            --pink-50: #fff5f5;
+            --pink-100: #ffe8e8;
+            --pink-200: #ffd6d6;
+            --pink-300: #ffb3b3;
+            --pink-400: #ff8a8a;
+            --pink-500: #e85555;
+            --pink-600: #cc3333;
+            --pink-700: #aa2222;
+            --gray-50: #faf9fc;
+            --gray-100: #f0eef4;
+            --gray-200: #e2dde8;
+            --gray-300: #cbc4d4;
+            --gray-600: #7a6f84;
+            --gray-700: #5a4d64;
+            --gray-800: #3d3445;
+            --white: #ffffff;
+            --radius: 20px;
+            --radius-sm: 12px;
+            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1e1628;
+            --bg-secondary: #2d1f3d;
+            --bg-hero: linear-gradient(160deg, #1e1628 0%, #2d1f3d 40%, #3d2a52 100%);
+            --bg-products: #1e1628;
+            --bg-media: #1a1222;
+            --bg-about: #1e1628;
+            --bg-social: #1a1222;
+            --bg-cta: linear-gradient(135deg, #2d1f3d, #3d2a52);
+            --bg-footer: #0d0914;
+            --text-primary: #ede7f0;
+            --text-secondary: #b8aec2;
+            --text-footer: rgba(255,255,255,0.6);
+            --card-bg: #2d1f3d;
+            --card-border: #4a3a5a;
+            --shadow: 0 2px 12px rgba(0,0,0,0.4);
+            --shadow-md: 0 8px 32px rgba(0,0,0,0.5);
+            --shadow-lg: 0 16px 56px rgba(0,0,0,0.6);
+            --pink-50: #2d1f3d;
+            --pink-100: #3d2a52;
+            --pink-200: #4a3a5a;
+            --pink-300: #9a6bb8;
+            --pink-400: #b088d0;
+            --pink-500: #c9b0e0;
+            --pink-600: #e0d0f0;
+            --pink-700: #ede4f7;
+            --gray-50: #2d1f3d;
+            --gray-100: #3d2a52;
+            --gray-200: #4a3a5a;
+            --gray-300: #6a5f78;
+            --gray-600: #b8aec2;
+            --gray-700: #cbc4d4;
+            --gray-800: #ede7f0;
+            --white: #2d1f3d;
+        }
+
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--pink-50);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--pink-300);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--pink-500);
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--pink-500), var(--pink-600));
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 6px 24px rgba(204, 51, 51, 0.35);
+            letter-spacing: 0.3px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 36px rgba(204, 51, 51, 0.45);
+        }
+        .btn-primary:active {
+            transform: scale(0.97);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--pink-600);
+            padding: 12px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 2px solid var(--pink-300);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn-outline:hover {
+            background: var(--pink-100);
+            border-color: var(--pink-500);
+            transform: translateY(-2px);
+        }
+
+        .btn-sm {
+            padding: 6px 16px;
+            font-size: 0.75rem;
+            border-radius: 40px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-edit {
+            background: var(--pink-200);
+            color: var(--pink-700);
+        }
+        .btn-edit:hover {
+            background: var(--pink-300);
+        }
+        .btn-delete {
+            background: #fce4ec;
+            color: #c62828;
+        }
+        .btn-delete:hover {
+            background: #f8d0dd;
+        }
+        .btn-save {
+            background: var(--pink-500);
+            color: #fff;
+        }
+        .btn-save:hover {
+            background: var(--pink-600);
+        }
+        .btn-cancel {
+            background: var(--gray-200);
+            color: var(--gray-700);
+        }
+        .btn-cancel:hover {
+            background: var(--gray-300);
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 12px 0;
+            transition: var(--transition);
+            background: transparent;
+        }
+        .navbar.scrolled {
+            background: var(--bg-secondary);
+            backdrop-filter: blur(18px) saturate(180%);
+            box-shadow: var(--shadow);
+            padding: 8px 0;
+        }
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--pink-700);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .navbar .logo span {
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+        .navbar .logo i {
+            font-size: 1.2rem;
+            color: var(--pink-500);
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--pink-500);
+            transition: var(--transition);
+        }
+        .nav-links a:hover {
+            color: var(--pink-600);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links .btn-nav {
+            background: var(--pink-500);
+            color: #fff !important;
+            padding: 6px 18px;
+            border-radius: 60px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .nav-links .btn-nav:hover {
+            background: var(--pink-600);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(204, 51, 51, 0.3);
+        }
+        .nav-links .btn-nav::after {
+            display: none;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            padding: 4px 8px;
+            border-radius: 40px;
+        }
+        .theme-toggle:hover {
+            color: var(--pink-500);
+            background: var(--pink-100);
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            background: none;
+            border: none;
+            padding: 4px 8px;
+        }
+        .cart-icon:hover {
+            color: var(--pink-500);
+        }
+        .cart-icon .badge {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: var(--pink-600);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 0.55rem;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--bg-secondary);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 3px;
+            background: var(--pink-600);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* ===== DISCOUNT BAR (FIXED, BELOW NAVBAR) ===== */
+        .discount-bar {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            right: 0;
+            z-index: 9998;
+            background: var(--pink-600);
+            color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 12px rgba(204, 51, 51, 0.25);
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: nowrap;
+            overflow: hidden;
+            min-height: 44px;
+            transition: background 0.3s ease;
+        }
+        .discount-bar .discount-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .discount-bar .discount-track {
+            overflow: hidden;
+            flex: 1;
+            position: relative;
+            white-space: nowrap;
+        }
+        .discount-bar .discount-text {
+            display: inline-block;
+            animation: slideDiscount 22s linear infinite;
+            padding-left: 20px;
+        }
+        .discount-bar .discount-text .discount-item {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 2px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 20px;
+            white-space: nowrap;
+        }
+        .discount-bar .discount-text .discount-item .old-price {
+            text-decoration: line-through;
+            opacity: 0.6;
+            font-weight: 400;
+            margin-right: 4px;
+        }
+        .discount-bar .discount-text .discount-item .new-price {
+            font-weight: 700;
+            color: #fff;
+        }
+        .discount-bar .discount-text .discount-item .badge {
+            background: #fff;
+            color: var(--pink-600);
+            padding: 0 8px;
+            border-radius: 40px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            margin-left: 6px;
+        }
+
+        @keyframes slideDiscount {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ===== HERO (adjusted for fixed bars) ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 160px 0 80px;
+            background: var(--bg-hero);
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s ease;
+        }
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-content .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-secondary);
+            backdrop-filter: blur(8px);
+            padding: 8px 20px;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--pink-700);
+            border: 1px solid var(--card-border);
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+        .hero-content h1 .highlight {
+            color: var(--pink-600);
+            position: relative;
+        }
+        .hero-content h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: rgba(204, 51, 51, 0.2);
+            border-radius: 10px;
+            z-index: -1;
+        }
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 480px;
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+        .hero-content .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+        .hero-content .hero-actions .social-mini a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pink-600);
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 1px solid var(--card-border);
+        }
+        .hero-content .hero-actions .social-mini a:hover {
+            background: var(--pink-500);
+            color: #fff;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(204, 51, 51, 0.3);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .hero-image .floating-card {
+            background: var(--bg-secondary);
+            backdrop-filter: blur(16px);
+            border-radius: var(--radius);
+            padding: 40px 36px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--card-border);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            transition: var(--transition);
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%,
+            100% { transform: translateY(0px); }
+            50% { transform: translateY(-16px); }
+        }
+        .hero-image .floating-card .emoji-big {
+            font-size: 4.5rem;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .hero-image .floating-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--pink-700);
+            margin-bottom: 4px;
+        }
+        .hero-image .floating-card .tagline {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+        .hero-image .floating-card .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--pink-300), var(--pink-500));
+            margin: 16px auto;
+            border-radius: 4px;
+        }
+        .hero-image .floating-card .stats {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 16px;
+        }
+        .hero-image .floating-card .stats .stat-item {
+            text-align: center;
+        }
+        .hero-image .floating-card .stats .stat-item .num {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--pink-700);
+        }
+        .hero-image .floating-card .stats .stat-item .label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== MUSIC NOTES ANIMATION (FREE) ===== */
+        .music-notes {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            pointer-events: none;
+            z-index: 998;
+            width: 140px;
+            height: 140px;
+        }
+        .music-notes .note {
+            position: absolute;
+            font-size: 1.8rem;
+            opacity: 0;
+            animation: noteFloat 3s ease-out forwards;
+        }
+        @keyframes noteFloat {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(0.5) rotate(-10deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-160px) scale(1.4) rotate(25deg);
+            }
+        }
+
+        /* ===== DOWNLOAD GIF (cat) ===== */
+        .cat-gif {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border: 3px solid var(--pink-200);
+            transition: var(--transition);
+            overflow: visible;
+            background: var(--bg-secondary);
+        }
+        .cat-gif:hover {
+            transform: scale(1.08);
+        }
+        .cat-gif img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .cat-gif .patty-emoji {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: none;
+        }
+        .cat-gif .patty-emoji.show {
+            animation: pattyPop 0.9s ease-out forwards;
+        }
+        @keyframes pattyPop {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(0.3);
+            }
+            40% {
+                opacity: 1;
+                transform: translate(-50%, -120%) scale(1.7);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -180%) scale(2.0);
+            }
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-title .sub {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--pink-500);
+            background: var(--pink-100);
+            padding: 4px 18px;
+            border-radius: 60px;
+            margin-bottom: 12px;
+        }
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+        .section-title h2 span {
+            color: var(--pink-600);
+        }
+        .section-title p {
+            color: var(--text-secondary);
+            max-width: 520px;
+            margin: 12px auto 0;
+            font-size: 1.05rem;
+        }
+
+        /* ===== PRODUCTS ===== */
+        .products {
+            padding: 80px 0 100px;
+            background: var(--bg-products);
+            transition: background 0.3s ease;
+        }
+
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            padding: 16px 24px;
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            border: 1px solid var(--card-border);
+        }
+        .filter-bar .filter-label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-right: 4px;
+        }
+        .filter-bar .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+        .filter-bar .filter-btn {
+            padding: 6px 18px;
+            border-radius: 40px;
+            border: 2px solid var(--gray-200);
+            background: var(--bg-secondary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .filter-bar .filter-btn:hover {
+            border-color: var(--pink-300);
+            color: var(--pink-600);
+        }
+        .filter-bar .filter-btn.active {
+            background: var(--pink-500);
+            border-color: var(--pink-500);
+            color: #fff;
+        }
+        .filter-bar select {
+            padding: 6px 14px;
+            border-radius: 40px;
+            border: 2px solid var(--gray-200);
+            background: var(--bg-secondary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+            outline: none;
+        }
+        .filter-bar select:focus {
+            border-color: var(--pink-400);
+        }
+
+        /* Discount menu */
+        .discount-menu {
+            margin-bottom: 30px;
+            padding: 16px 24px;
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            border: 1px solid var(--card-border);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+        }
+        .discount-menu .menu-label {
+            font-weight: 700;
+            color: var(--pink-600);
+            font-size: 0.95rem;
+        }
+        .discount-menu .menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+        }
+        .discount-menu .menu-items .discount-tag {
+            background: var(--pink-100);
+            color: var(--pink-700);
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: default;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+        }
+        .product-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 20px 16px 20px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--pink-300), var(--pink-500));
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--pink-200);
+        }
+        .product-card:hover::before {
+            opacity: 1;
+        }
+        .product-card .product-thumb {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            background: var(--gray-100);
+            margin-bottom: 12px;
+        }
+        .product-card .product-icon {
+            font-size: 2.8rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .product-card h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .product-card .product-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+        .product-card .product-price {
+            font-weight: 700;
+            color: var(--pink-600);
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        .product-card .product-stock {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+        .product-card .product-stock .in-stock {
+            color: #2e7d32;
+            font-weight: 600;
+        }
+        .product-card .product-stock .out-of-stock {
+            color: #c62828;
+            font-weight: 600;
+        }
+        .product-card .product-tag {
+            display: inline-block;
+            background: var(--pink-100);
+            color: var(--pink-700);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 14px;
+            border-radius: 60px;
+            letter-spacing: 0.3px;
+            margin-bottom: 10px;
+        }
+        .product-card .add-to-cart-btn {
+            width: 100%;
+            padding: 8px 0;
+            border: 2px solid var(--pink-400);
+            background: transparent;
+            color: var(--pink-600);
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .product-card .add-to-cart-btn:hover:not(:disabled) {
+            background: var(--pink-500);
+            color: #fff;
+            border-color: var(--pink-500);
+        }
+        .product-card .add-to-cart-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .product-card .add-to-cart-btn.in-cart {
+            background: var(--pink-200);
+            border-color: var(--pink-400);
+            color: var(--pink-700);
+        }
+        .product-card .click-hint {
+            font-size: 0.65rem;
+            color: var(--gray-300);
+            margin-top: 6px;
+        }
+        .product-card .discount-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--pink-600);
+            color: #fff;
+            padding: 2px 12px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        /* ===== PRODUCT DETAIL MODAL ===== */
+        .detail-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 9998;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .detail-overlay.active {
+            display: flex;
+        }
+        .detail-panel {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 32px 28px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--card-border);
+            position: relative;
+        }
+        .detail-panel .detail-close {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .detail-panel .detail-close:hover {
+            color: var(--text-primary);
+        }
+        .detail-panel .detail-main-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            background: var(--gray-100);
+            margin-bottom: 12px;
+        }
+        .detail-panel .detail-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        .detail-panel .detail-gallery .thumb-image {
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            background: var(--gray-100);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 3px solid transparent;
+            width: 100%;
+        }
+        .detail-panel .detail-gallery .thumb-image:hover {
+            border-color: var(--pink-300);
+            transform: scale(1.03);
+        }
+        .detail-panel .detail-gallery .thumb-image.active {
+            border-color: var(--pink-600);
+        }
+        .detail-panel .detail-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .detail-panel .detail-info .detail-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--pink-600);
+            margin-bottom: 8px;
+        }
+        .detail-panel .detail-info .detail-stock {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        .detail-panel .detail-info .detail-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        .detail-panel .detail-info .detail-tag {
+            display: inline-block;
+            background: var(--pink-100);
+            color: var(--pink-700);
+            padding: 4px 16px;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .detail-panel .detail-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .detail-panel .detail-actions .btn-sm {
+            flex: 1;
+            justify-content: center;
+            padding: 10px;
+            font-size: 0.85rem;
+            min-width: 120px;
+        }
+
+        /* ===== PROOF SECTION ===== */
+        .proof-section {
+            padding: 80px 0 100px;
+            background: var(--bg-media);
+            transition: background 0.3s ease;
+        }
+        .proof-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .proof-item {
+            background: var(--card-bg);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--card-border);
+            transition: var(--transition);
+        }
+        .proof-item:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+        .proof-item .proof-thumb {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            background: var(--gray-100);
+        }
+        .proof-item .proof-caption {
+            padding: 12px 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+        .proof-empty {
+            grid-column: 1/-1;
+            text-align: center;
+            color: var(--text-secondary);
+            padding: 40px 0;
+        }
+
+        /* ===== RULES SECTION ===== */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .rule-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 20px 24px 16px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .rule-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--pink-200);
+        }
+        .rule-card .rule-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .rule-card .rule-header .rule-icon {
+            font-size: 1.8rem;
+        }
+        .rule-card .rule-header .rule-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+        .rule-card .rule-header .rule-toggle {
+            margin-left: auto;
+            color: var(--pink-400);
+            transition: var(--transition);
+        }
+        .rule-card .rule-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding-top: 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .rule-card .rule-content p {
+            margin-top: 12px;
+        }
+        .rule-card.open .rule-content {
+            max-height: 600px;
+            padding-top: 12px;
+        }
+        .rule-card.open .rule-toggle {
+            transform: rotate(180deg);
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            padding: 80px 0 100px;
+            background: var(--bg-about);
+            transition: background 0.3s ease;
+        }
+        .about .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-image .bio-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 40px 36px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--card-border);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        .about-image .bio-card .quote-icon {
+            font-size: 2.4rem;
+            color: var(--pink-300);
+            margin-bottom: 8px;
+        }
+        .about-image .bio-card blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .about-image .bio-card blockquote span {
+            color: var(--pink-600);
+            font-weight: 600;
+        }
+        .about-image .bio-card .bio-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+        .about-text h2 span {
+            color: var(--pink-600);
+        }
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        /* ===== LEGAL ===== */
+        .legal-section {
+            padding: 60px 0;
+            background: var(--bg-primary);
+        }
+        .legal-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 40px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+        }
+        .legal-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+        .legal-box p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--bg-footer);
+            color: var(--text-footer);
+            padding: 48px 0 32px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        .footer .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .footer .footer-brand .shop-trigger {
+            color: var(--pink-300);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+        .footer .footer-brand .shop-trigger:hover {
+            color: var(--pink-200);
+            text-shadow: 0 0 20px rgba(204, 51, 51, 0.3);
+        }
+        .footer .footer-brand .shop-trigger::after {
+            content: '🔑';
+            font-size: 0.7rem;
+            opacity: 0;
+            transition: var(--transition);
+            margin-left: 4px;
+        }
+        .footer .footer-brand .shop-trigger:hover::after {
+            opacity: 0.6;
+        }
+        .footer .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.6);
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+        .footer .footer-social a:hover {
+            background: var(--pink-500);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* ===== MUSIC BUTTON (no badge) ===== */
+        .music-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--pink-500);
+            border: 3px solid var(--pink-200);
+            box-shadow: 0 4px 20px rgba(204, 51, 51, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            cursor: pointer;
+            z-index: 999;
+            transition: var(--transition);
+            color: #fff;
+            user-select: none;
+        }
+        .music-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 28px rgba(204, 51, 51, 0.6);
+        }
+        .music-btn:active {
+            transform: scale(0.92);
+        }
+
+        .now-playing {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-sm);
+            padding: 12px 20px;
+            box-shadow: var(--shadow-md);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            z-index: 998;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            pointer-events: none;
+            max-width: 220px;
+            text-align: center;
+        }
+        .now-playing.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .now-playing .song-name {
+            color: var(--pink-600);
+            font-weight: 700;
+        }
+
+        /* ===== CART PANEL ===== */
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 9997;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .cart-overlay.active {
+            display: flex;
+        }
+        .cart-panel {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            max-width: 500px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 32px 28px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--card-border);
+            position: relative;
+        }
+        .cart-panel .cart-close {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .cart-panel .cart-close:hover {
+            color: var(--text-primary);
+        }
+        .cart-panel h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .cart-panel .cart-sub {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+        .cart-item .item-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .cart-item .item-info .item-icon {
+            font-size: 1.6rem;
+        }
+        .cart-item .item-info .item-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+        .cart-item .item-info .item-price {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .cart-item .item-qty {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .cart-item .item-qty button {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid var(--gray-200);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cart-item .item-qty button:hover {
+            border-color: var(--pink-400);
+            background: var(--pink-50);
+        }
+        .cart-item .item-qty .qty-num {
+            font-weight: 600;
+            min-width: 24px;
+            text-align: center;
+        }
+        .cart-item .remove-btn {
+            background: none;
+            border: none;
+            color: #c62828;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 4px 8px;
+        }
+        .cart-item .remove-btn:hover {
+            transform: scale(1.2);
+        }
+        .cart-empty {
+            text-align: center;
+            color: var(--text-secondary);
+            padding: 30px 0;
+        }
+        .cart-total {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 2px solid var(--card-border);
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+        .cart-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+        .cart-actions .btn-sm {
+            flex: 1;
+            justify-content: center;
+            padding: 10px;
+            font-size: 0.85rem;
+        }
+
+        /* ===== ADMIN MODAL ===== */
+        .admin-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+        .admin-overlay.active {
+            display: flex;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.96); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .admin-modal {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            max-width: 860px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 32px 36px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            border: 1px solid var(--card-border);
+        }
+        .admin-modal .admin-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 4px 8px;
+            border-radius: 8px;
+        }
+        .admin-modal .admin-close:hover {
+            color: var(--text-primary);
+            background: var(--gray-100);
+        }
+        .admin-modal h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .admin-modal .admin-sub {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+        }
+
+        .admin-login {
+            display: block;
+        }
+        .admin-login form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 16px 0;
+        }
+        .admin-login label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .admin-login input {
+            padding: 12px 16px;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            transition: var(--transition);
+            outline: none;
+            width: 100%;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+        .admin-login input:focus {
+            border-color: var(--pink-400);
+            box-shadow: 0 0 0 4px rgba(204, 51, 51, 0.12);
+        }
+        .admin-login .login-error {
+            color: #c62828;
+            font-size: 0.85rem;
+            display: none;
+        }
+        .admin-login .login-error.show {
+            display: block;
+        }
+
+        .admin-dashboard {
+            display: none;
+        }
+        .admin-dashboard.active {
+            display: block;
+        }
+
+        .admin-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--gray-200);
+            padding-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        .admin-tabs .tab-btn {
+            background: none;
+            border: none;
+            padding: 8px 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border-radius: 40px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .admin-tabs .tab-btn:hover {
+            background: var(--gray-100);
+        }
+        .admin-tabs .tab-btn.active {
+            background: var(--pink-500);
+            color: #fff;
+        }
+        .admin-tab-content {
+            display: none;
+        }
+        .admin-tab-content.active {
+            display: block;
+        }
+
+        .admin-item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 16px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+        .admin-item-list .admin-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            background: var(--bg-primary);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--card-border);
+            transition: var(--transition);
+        }
+        .admin-item-list .admin-item:hover {
+            border-color: var(--pink-200);
+            background: var(--pink-50);
+        }
+        .admin-item-list .admin-item .item-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .admin-item-list .admin-item .item-info .item-icon {
+            font-size: 1.4rem;
+        }
+        .admin-item-list .admin-item .item-info .item-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+        .admin-item-list .admin-item .item-info .item-detail {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .admin-item-list .admin-item .item-actions {
+            display: flex;
+            gap: 6px;
+        }
+
+        .admin-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .admin-toolbar .admin-count {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .admin-form {
+            background: var(--bg-primary);
+            border-radius: var(--radius-sm);
+            padding: 16px 18px 20px;
+            margin-bottom: 16px;
+            border: 1px solid var(--card-border);
+            display: none;
+        }
+        .admin-form.active {
+            display: block;
+        }
+        .admin-form .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .admin-form .form-row.full {
+            grid-template-columns: 1fr;
+        }
+        .admin-form label {
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: block;
+            margin-bottom: 4px;
+        }
+        .admin-form input,
+        .admin-form select,
+        .admin-form textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            transition: var(--transition);
+            outline: none;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+        .admin-form input:focus,
+        .admin-form select:focus,
+        .admin-form textarea:focus {
+            border-color: var(--pink-400);
+            box-shadow: 0 0 0 4px rgba(204, 51, 51, 0.1);
+        }
+        .admin-form .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        .admin-form .file-input-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .admin-form .file-input-wrapper input[type="file"] {
+            padding: 8px;
+            border: 2px dashed var(--gray-300);
+            border-radius: var(--radius-sm);
+            background: var(--bg-secondary);
+        }
+        .admin-form .file-input-wrapper .file-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .admin-form .file-input-wrapper .file-list .file-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--pink-100);
+            color: var(--pink-700);
+            padding: 2px 10px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .admin-form .file-input-wrapper .file-list .file-tag .remove-file {
+            cursor: pointer;
+            color: #c62828;
+            font-weight: 700;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-content h1 { font-size: 3.2rem; }
+            .hero .container { gap: 40px; }
+            .detail-panel .detail-gallery { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }
+            .discount-bar { font-size: 0.85rem; padding: 8px 16px; min-height: 40px; top: 52px; }
+            .navbar { padding: 8px 0; }
+            .hero { padding: 150px 0 70px; }
+        }
+
+        @media (max-width: 900px) {
+            .hero .container { grid-template-columns: 1fr; text-align: center; }
+            .hero-content p { margin-left: auto; margin-right: auto; }
+            .hero-content .hero-actions { justify-content: center; }
+            .hero-image .floating-card { max-width: 340px; margin: 0 auto; }
+            .about .container { grid-template-columns: 1fr; text-align: center; }
+            .about-image .bio-card { max-width: 340px; margin: 0 auto; }
+            .section-title h2 { font-size: 2.2rem; }
+            .navbar .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 80px 32px 40px;
+                box-shadow: var(--shadow-lg);
+                transition: var(--transition);
+                gap: 20px;
+                align-items: flex-start;
+            }
+            .navbar .nav-links.open { right: 0; }
+            .hamburger { display: flex; z-index: 1001; }
+            .nav-links .btn-nav { width: 100%; text-align: center; }
+            .hero-content h1 { font-size: 2.6rem; }
+            .admin-modal { padding: 24px 20px; }
+            .admin-form .form-row { grid-template-columns: 1fr; }
+            .proof-gallery { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+            .filter-bar { flex-direction: column; align-items: stretch; gap: 12px; }
+            .filter-bar .filter-group { justify-content: center; }
+            .music-btn { width: 56px; height: 56px; font-size: 1.8rem; bottom: 20px; right: 20px; }
+            .now-playing { bottom: 90px; right: 20px; max-width: 180px; font-size: 0.75rem; padding: 10px 14px; }
+            .cart-panel { max-width: 400px; padding: 24px 20px; }
+            .detail-panel { padding: 24px 20px; }
+            .detail-panel .detail-gallery { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); }
+            .cat-gif { width: 56px; height: 56px; bottom: 20px; left: 20px; }
+            .discount-bar { font-size: 0.75rem; padding: 6px 12px; min-height: 36px; top: 48px; }
+            .discount-menu { flex-direction: column; align-items: flex-start; }
+            .music-notes { bottom: 90px; right: 20px; width: 100px; height: 100px; }
+            .music-notes .note { font-size: 1.3rem; }
+            .hero { padding: 140px 0 60px; }
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding: 130px 0 50px; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-content p { font-size: 1rem; }
+            .hero-image .floating-card { padding: 28px 20px; }
+            .hero-image .floating-card .stats { gap: 20px; }
+            .products-grid { grid-template-columns: 1fr 1fr; }
+            .section-title h2 { font-size: 1.8rem; }
+            .footer .container { flex-direction: column; text-align: center; }
+            .btn-primary, .btn-outline { padding: 12px 28px; font-size: 0.85rem; }
+            .admin-item { flex-wrap: wrap; gap: 8px; }
+            .admin-item .item-actions { width: 100%; justify-content: flex-start; }
+            .proof-gallery { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+            .rules-grid { grid-template-columns: 1fr; }
+            .filter-bar .filter-group { gap: 6px; }
+            .filter-bar .filter-btn { padding: 4px 12px; font-size: 0.7rem; }
+            .music-btn { width: 50px; height: 50px; font-size: 1.6rem; bottom: 16px; right: 16px; }
+            .now-playing { bottom: 78px; right: 16px; max-width: 150px; font-size: 0.7rem; padding: 8px 12px; }
+            .cart-panel { max-width: 100%; padding: 20px 16px; }
+            .detail-panel { padding: 20px 16px; }
+            .detail-panel .detail-gallery { grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); gap: 6px; }
+            .detail-panel .detail-actions .btn-sm { min-width: 80px; font-size: 0.75rem; padding: 8px; }
+            .legal-box { padding: 24px 16px; }
+            .cat-gif { width: 48px; height: 48px; bottom: 16px; left: 16px; }
+            .discount-bar { font-size: 0.7rem; padding: 4px 10px; min-height: 32px; top: 44px; }
+            .discount-bar .discount-text .discount-item { font-size: 0.6rem; padding: 2px 10px; margin-right: 12px; }
+            .discount-menu { padding: 12px 16px; }
+            .discount-menu .menu-items .discount-tag { font-size: 0.7rem; padding: 2px 12px; }
+            .music-notes { bottom: 78px; right: 16px; width: 80px; height: 80px; }
+            .music-notes .note { font-size: 1.1rem; }
+            .hero { padding: 120px 0 40px; }
+        }
+
+        @media (max-width: 420px) {
+            .products-grid { grid-template-columns: 1fr; }
+            .hero-content .hero-actions { flex-direction: column; align-items: center; }
+            .detail-panel .detail-gallery { grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); }
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .admin-modal::-webkit-scrollbar,
+        .admin-item-list::-webkit-scrollbar,
+        .cart-panel::-webkit-scrollbar,
+        .detail-panel::-webkit-scrollbar {
+            width: 6px;
+        }
+        .admin-modal::-webkit-scrollbar-track,
+        .admin-item-list::-webkit-scrollbar-track,
+        .cart-panel::-webkit-scrollbar-track,
+        .detail-panel::-webkit-scrollbar-track {
+            background: var(--gray-100);
+            border-radius: 10px;
+        }
+        .admin-modal::-webkit-scrollbar-thumb,
+        .admin-item-list::-webkit-scrollbar-thumb,
+        .cart-panel::-webkit-scrollbar-thumb,
+        .detail-panel::-webkit-scrollbar-thumb {
+            background: var(--pink-300);
+            border-radius: 10px;
+        }
+        .admin-modal::-webkit-scrollbar-thumb:hover,
+        .admin-item-list::-webkit-scrollbar-thumb:hover,
+        .cart-panel::-webkit-scrollbar-thumb:hover,
+        .detail-panel::-webkit-scrollbar-thumb:hover {
+            background: var(--pink-500);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-crown"></i> Purple<span>Universe</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#products">Məhsullar</a></li>
+                <li><a href="#proof">Proof</a></li>
+                <li><a href="#about">Haqqımızda</a></li>
+                <li><a href="#legal">Legal</a></li>
+                <li>
+                    <button class="cart-icon" id="cartToggle" aria-label="Səbət">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cartBadge">0</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Gecə/gündüz rejimi">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== DISCOUNT BAR (FIXED, BELOW NAVBAR) ===== -->
+    <div class="discount-bar" id="discountBar">
+        <span class="discount-icon">🏷️</span>
+        <div class="discount-track">
+            <div class="discount-text" id="discountText">
+                <!-- dynamically filled -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">
+                    <i class="fas fa-sparkles"></i> Artıq xidmətinizdə 🎀
+                </div>
+                <h1>
+                    K-pop <span class="highlight">Merch</span> &amp; More
+                </h1>
+                <p>
+                    Orijinal K-pop məhsulları, albomlar, posterlər, peluşlar və dəstlər
+                    ən qısa müddətdə əlinizdə ✨
+                </p>
+                <div class="hero-actions">
+                    <a href="#products" class="btn-primary">
+                        <i class="fas fa-shopping-bag"></i> Mağazaya bax
+                    </a>
+                    <a href="https://www.instagram.com/purpleuniversebaku/" target="_blank" class="btn-outline">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card">
+                    <span class="emoji-big">💜</span>
+                    <h3>PurpleUniverse</h3>
+                    <p class="tagline">✨ K-pop &amp; Korean culture</p>
+                    <div class="divider"></div>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="num" id="statProducts">0</div>
+                            <div class="label">Məhsul</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="num">100%</div>
+                            <div class="label">Orijinal</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="num">24/7</div>
+                            <div class="label">Dəstək</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCTS SECTION ===== -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title fade-up">
+                <span class="sub"><i class="fas fa-gem"></i> Kolleksiya</span>
+                <h2>K-pop <span>Merch</span></h2>
+                <p>Orijinal K-pop albomları, posterlər, peluşlar və xüsusi dəstlər.</p>
+            </div>
+
+            <!-- Discount Menu -->
+            <div class="discount-menu fade-up" id="discountMenu">
+                <span class="menu-label">🏷️ Endirimdə olan məhsullar:</span>
+                <div class="menu-items" id="discountItems">
+                    <!-- dynamically rendered -->
+                </div>
+            </div>
+
+            <div class="filter-bar fade-up">
+                <span class="filter-label"><i class="fas fa-filter"></i> Kateqoriya:</span>
+                <div class="filter-group" id="categoryFilterGroup">
+                    <button class="filter-btn active" data-category="all">Hamısı</button>
+                    <button class="filter-btn" data-category="album">💿 Albom</button>
+                    <button class="filter-btn" data-category="peluşlar">🧸 Peluşlar</button>
+                    <button class="filter-btn" data-category="merch">👕 Merch</button>
+                    <button class="filter-btn" data-category="kartlar">🃏 Kartlar</button>
+                </div>
+                <span class="filter-label" style="margin-left:12px;"><i class="fas fa-sort-amount-down"></i> Sırala:</span>
+                <select id="sortSelect">
+                    <option value="stock-desc">Stok (çoxdan aza)</option>
+                    <option value="price-asc">Ən ucuz</option>
+                    <option value="price-desc">Ən bahalı</option>
+                </select>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- dynamically rendered -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCT DETAIL MODAL ===== -->
+    <div class="detail-overlay" id="detailOverlay">
+        <div class="detail-panel">
+            <button class="detail-close" id="detailClose">&times;</button>
+            <div id="detailContent">
+                <!-- dynamically rendered -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PROOF SECTION ===== -->
+    <section class="proof-section" id="proof">
+        <div class="container">
+            <div class="section-title fade-up">
+                <span class="sub"><i class="fas fa-check-circle"></i> Proof</span>
+                <h2>Müştəri <span>Şəkilləri</span></h2>
+                <p>Mağazamızdan alış-veriş edən müştərilərimizin şəkilləri.</p>
+            </div>
+            <div class="proof-gallery" id="proofGallery">
+                <!-- rendered by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RULES SECTION ===== -->
+    <section class="media-section" id="rules">
+        <div class="container">
+            <div class="section-title fade-up">
+                <span class="sub"><i class="fas fa-list-ul"></i> Qaydalar</span>
+                <h2>Mağaza <span>Qaydaları</span></h2>
+                <p>Alış-veriş etməzdən əvvəl qaydaları oxuyun.</p>
+            </div>
+            <div class="rules-grid" id="rulesGrid">
+                <!-- rendered by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-image fade-up">
+                <div class="bio-card">
+                    <div class="quote-icon">💜</div>
+                    <blockquote>
+                        “Artıq xidmətinizdə <span>🎀</span><br />
+                        K-pop məhsulları ən qısa müddətdə <span>əlinizdə ✨</span>”
+                    </blockquote>
+                    <div class="bio-meta">
+                        <i class="fas fa-crown"></i>
+                        <span>PurpleUniverse</span>
+                        <i class="fas fa-heart" style="color: var(--pink-400);"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="about-text fade-up">
+                <span class="sub" style="display:inline-block; background:var(--pink-100); padding:4px 18px; border-radius:60px; font-size:0.8rem; font-weight:600; color:var(--pink-500); letter-spacing:1px; margin-bottom:12px;">
+                    <i class="fas fa-star"></i> Haqqımızda
+                </span>
+                <h2>Purple<span>Universe</span></h2>
+                <p>
+                    Biz Bakıda K-pop məhsulları üzrə ixtisaslaşmış onlayn mağazayıq.
+                    Orijinal albomlar, posterlər, peluşlar və xüsusi dəstlər — hamısı sizin üçün.
+                </p>
+                <p>
+                    Hər bir məhsul diqqətlə seçilir və sizin məmnuniyyətiniz üçün
+                    ən yüksək standartlara cavab verir.
+                </p>
+                <a href="https://www.instagram.com/purpleuniversebaku/" target="_blank" class="btn-primary" style="font-size:0.9rem;">
+                    <i class="fab fa-instagram"></i> Bizi izlə
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LEGAL ===== -->
+    <section class="legal-section" id="legal">
+        <div class="container">
+            <div class="section-title fade-up">
+                <span class="sub"><i class="fas fa-gavel"></i> Legal</span>
+                <h2>Privacy Policy &amp; <span>Terms</span></h2>
+            </div>
+            <div class="legal-box">
+                <h3>📜 Privacy Policy</h3>
+                <p>
+                    PurpleUniverse ("biz", "bizim") istifadəçilərin məxfiliyini qorumağa sadiqdir. Bu Siyasət,
+                    saytımızdan istifadə edərkən şəxsi məlumatlarınızın necə toplanması, istifadə edilməsi və
+                    qorunması barədə məlumat verir.
+                </p>
+                <p>
+                    <strong>Məlumat Toplanması:</strong> Sifariş zamanı ad, ünvan, e-poçt və telefon nömrəsi kimi
+                    məlumatları toplayırıq. Bu məlumatlar yalnız sifarişin yerinə yetirilməsi və çatdırılması üçün
+                    istifadə olunur.
+                </p>
+                <p>
+                    <strong>Məlumatların İstifadəsi:</strong> Toplanan məlumatlar sifarişlərin işlənməsi, müştəri
+                    dəstəyinin göstərilməsi və xidmətlərimizin təkmilləşdirilməsi məqsədilə istifadə olunur.
+                    Məlumatlarınızı heç bir üçüncü tərəflə paylaşmırıq.
+                </p>
+                <p>
+                    <strong>Kukilər (Cookies):</strong> Saytımız istifadəçi təcrübəsini yaxşılaşdırmaq üçün
+                    kukilərdən istifadə edir. Kukiləri brauzer parametrlərindən idarə edə bilərsiniz.
+                </p>
+                <p>
+                    <strong>Məlumatların Təhlükəsizliyi:</strong> Şəxsi məlumatlarınızı icazəsiz girişdən,
+                    dəyişdirilmədən və ya məhv edilmədən qorumaq üçün müvafiq təhlükəsizlik tədbirləri görürük.
+                </p>
+                <p>
+                    Bu Siyasət istənilən vaxt yenilənə bilər. Dəyişikliklər barədə sizi məlumatlandıracağıq.
+                    Sual və ya narahatlıqlarınız üçün bizimlə əlaqə saxlayın.
+                </p>
+
+                <h3 style="margin-top:30px;">📋 Terms &amp; Conditions</h3>
+                <p>
+                    PurpleUniverse saytından istifadə edərək, aşağıdakı şərtlərlə razılaşmış olursunuz.
+                </p>
+                <p>
+                    <strong>Məhsullar:</strong> Təqdim olunan bütün məhsullar orijinaldır. Məhsulların təsviri
+                    və qiymətləri dəqiqdir, lakin dəyişiklik edilə bilər. Sifariş verərkən məhsulun mövcudluğu
+                    yoxlanılır.
+                </p>
+                <p>
+                    <strong>Sifariş və Ödəniş:</strong> Sifarişlər sayt vasitəsilə qəbul olunur. Ödəniş
+                    çatdırılma zamanı nağd və ya hesaba köçürmə ilə həyata keçirilə bilər. Sifariş təsdiqləndikdən
+                    sonra məhsullar 1-3 iş günü ərzində çatdırılır.
+                </p>
+                <p>
+                    <strong>Geri Qaytarma:</strong> Məhsul qüsurlu və ya səhv göndərildikdə, qəbzdən sonra 7 gün
+                    ərzində geri qaytarma mümkündür. Məhsul orijinal qablaşdırmasında olmalıdır.
+                </p>
+                <p>
+                    <strong>Müştəri Məsuliyyəti:</strong> Saytdan istifadə edərkən qanunlara və ümumi qaydalara
+                    riayət etməlisiniz. Yanlış məlumat vermək və ya sui-istifadə halında, sifariş ləğv edilə bilər.
+                </p>
+                <p>
+                    Bu şərtlər istənilən vaxt yenilənə bilər. Dəyişikliklər barədə sizi məlumatlandıracağıq.
+                    Sual və ya narahatlıqlarınız üçün bizimlə əlaqə saxlayın.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                Purple<span class="shop-trigger" id="adminTrigger">Universe</span> <span style="font-weight:400; font-family:'Inter',sans-serif; font-size:0.8rem; color:rgba(255,255,255,0.4);">✨</span>
+            </div>
+            <p>&copy; 2026 PurpleUniverse. Bütün hüquqlar qorunur.</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/purpleuniversebaku/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== MUSIC BUTTON (no badge) ===== -->
+    <div class="music-btn" id="musicBtn" title="Mahnı dəyiş">
+        💜
+    </div>
+    <div class="music-notes" id="musicNotes"></div>
+    <div class="now-playing" id="nowPlaying">
+        🎵 <span class="song-name" id="songName">Yüklənir...</span>
+    </div>
+
+    <!-- ===== AUDIO PLAYER ===== -->
+    <audio id="audioPlayer" style="display:none;"></audio>
+
+    <!-- ===== CAT GIF ===== -->
+    <div class="cat-gif" id="catGif" title="Pişik">
+        <img src="download.gif" alt="Pişik" id="catGifImage" />
+        <span class="patty-emoji" id="pattyEmoji">🐾</span>
+    </div>
+
+    <!-- ===== CART PANEL ===== -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-panel">
+            <button class="cart-close" id="cartClose">&times;</button>
+            <h2>🛍️ Səbət</h2>
+            <p class="cart-sub">Səbətdəki məhsullar</p>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <span>Ümumi:</span>
+                <span id="cartTotal">0 AZN</span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn-sm btn-primary" id="checkoutBtn" style="flex:1; justify-content:center;">
+                    <i class="fas fa-paper-plane"></i> Sifariş et
+                </button>
+                <button class="btn-sm btn-cancel" id="clearCartBtn">Təmizlə</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ADMIN MODAL ===== -->
+    <div class="admin-overlay" id="adminOverlay">
+        <div class="admin-modal">
+            <button class="admin-close" id="adminClose">&times;</button>
+
+            <div class="admin-login" id="adminLogin">
+                <h2>🔐 Admin girişi</h2>
+                <p class="admin-sub">Mağazanı idarə etmək üçün daxil olun.</p>
+                <form id="loginForm">
+                    <div>
+                        <label for="loginUser">İstifadəçi adı</label>
+                        <input type="text" id="loginUser" placeholder="username" autocomplete="off" />
+                    </div>
+                    <div>
+                        <label for="loginPass">Şifrə</label>
+                        <input type="password" id="loginPass" placeholder="password" autocomplete="off" />
+                    </div>
+                    <div class="login-error" id="loginError">❌ İstifadəçi adı və ya şifrə yanlışdır!</div>
+                    <button type="submit" class="btn-primary" style="width:100%; justify-content:center; padding:14px;">
+                        <i class="fas fa-sign-in-alt"></i> Daxil ol
+                    </button>
+                </form>
+            </div>
+
+            <div class="admin-dashboard" id="adminDashboard">
+                <h2>📦 Admin panel</h2>
+                <p class="admin-sub">Məhsulları, proof və qaydaları idarə edin.</p>
+                <div class="admin-tabs">
+                    <button class="tab-btn active" data-tab="tabProducts">Məhsullar</button>
+                    <button class="tab-btn" data-tab="tabProof">Proof</button>
+                    <button class="tab-btn" data-tab="tabRules">Qaydalar</button>
+                    <button class="tab-btn" data-tab="tabDiscount">Endirim</button>
+                </div>
+                <div class="admin-tab-content active" id="tabProducts">
+                    <div class="admin-toolbar">
+                        <span class="admin-count" id="productCount">0 məhsul</span>
+                        <button class="btn-primary btn-sm" id="showAddProductForm" style="padding:8px 20px;">
+                            <i class="fas fa-plus"></i> Əlavə et
+                        </button>
+                    </div>
+                    <div class="admin-form" id="productForm">
+                        <h4 id="productFormTitle" style="margin-bottom:12px; font-weight:600;">➕ Yeni məhsul</h4>
+                        <input type="hidden" id="editProductId" value="" />
+                        <div class="form-row">
+                            <div>
+                                <label for="pName">Məhsul adı *</label>
+                                <input type="text" id="pName" placeholder="məs: BTS - BE Album" />
+                            </div>
+                            <div>
+                                <label for="pPrice">Qiymət (AZN) *</label>
+                                <input type="number" id="pPrice" placeholder="45" step="0.01" min="0" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div>
+                                <label for="pDesc">Təsvir</label>
+                                <input type="text" id="pDesc" placeholder="Qısa təsvir" />
+                            </div>
+                            <div>
+                                <label for="pCategory">Kateqoriya</label>
+                                <select id="pCategory">
+                                    <option value="album">Albom</option>
+                                    <option value="peluşlar">Peluşlar</option>
+                                    <option value="merch">Merch</option>
+                                    <option value="kartlar">Kartlar</option>
+                                    <option value="digər">Digər</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div>
+                                <label for="pStock">Stok sayı *</label>
+                                <input type="number" id="pStock" placeholder="10" min="0" value="10" />
+                            </div>
+                            <div>
+                                <label for="pIcon">İkon (emoji)</label>
+                                <input type="text" id="pIcon" placeholder="🎤" value="💿" />
+                            </div>
+                        </div>
+                        <div class="form-row full">
+                            <div>
+                                <label>Şəkillər (çoxlu seçim)</label>
+                                <div class="file-input-wrapper">
+                                    <input type="file" id="pImages" accept="image/*" multiple />
+                                    <div class="file-list" id="pImageList"></div>
+                                </div>
+                                <small style="color:var(--text-secondary);">Bir neçə şəkil seçə bilərsiniz. İlk şəkil əsas şəkil olacaq.</small>
+                            </div>
+                        </div>
+                        <div class="form-row full">
+                            <div>
+                                <label for="pDiscount">Endirim faizi (0-100)</label>
+                                <input type="number" id="pDiscount" placeholder="10" min="0" max="100" value="0" />
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn-sm btn-save" id="saveProductBtn"><i class="fas fa-save"></i> Yadda saxla</button>
+                            <button class="btn-sm btn-cancel" id="cancelProductFormBtn">Ləğv et</button>
+                        </div>
+                    </div>
+                    <div class="admin-item-list" id="adminProductList"></div>
+                </div>
+                <div class="admin-tab-content" id="tabProof">
+                    <div class="admin-toolbar">
+                        <span class="admin-count" id="proofCount">0 proof</span>
+                        <button class="btn-primary btn-sm" id="showAddProofForm" style="padding:8px 20px;">
+                            <i class="fas fa-plus"></i> Yüklə
+                        </button>
+                    </div>
+                    <div class="admin-form" id="proofForm">
+                        <h4 id="proofFormTitle" style="margin-bottom:12px; font-weight:600;">➕ Proof yüklə</h4>
+                        <input type="hidden" id="editProofId" value="" />
+                        <div class="form-row full">
+                            <div>
+                                <label for="proofFile">Şəkil faylı *</label>
+                                <div class="file-input-wrapper">
+                                    <input type="file" id="proofFile" accept="image/*" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div>
+                                <label for="proofCaption">Başlıq / Caption</label>
+                                <input type="text" id="proofCaption" placeholder="məs: Müştəri şəkli" />
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn-sm btn-save" id="saveProofBtn"><i class="fas fa-save"></i> Yadda saxla</button>
+                            <button class="btn-sm btn-cancel" id="cancelProofFormBtn">Ləğv et</button>
+                        </div>
+                    </div>
+                    <div class="admin-item-list" id="adminProofList"></div>
+                </div>
+                <div class="admin-tab-content" id="tabRules">
+                    <div class="admin-toolbar">
+                        <span class="admin-count" id="rulesCount">0 qayda</span>
+                        <button class="btn-primary btn-sm" id="showAddRuleForm" style="padding:8px 20px;">
+                            <i class="fas fa-plus"></i> Qayda əlavə et
+                        </button>
+                    </div>
+                    <div class="admin-form" id="ruleForm">
+                        <h4 id="ruleFormTitle" style="margin-bottom:12px; font-weight:600;">➕ Yeni qayda</h4>
+                        <input type="hidden" id="editRuleId" value="" />
+                        <div class="form-row">
+                            <div>
+                                <label for="ruleTitle">Başlıq *</label>
+                                <input type="text" id="ruleTitle" placeholder="məs: Geri qaytarma" />
+                            </div>
+                            <div>
+                                <label for="ruleIcon">İkon (emoji)</label>
+                                <input type="text" id="ruleIcon" placeholder="📦" value="📌" />
+                            </div>
+                        </div>
+                        <div class="form-row full">
+                            <div>
+                                <label for="ruleContent">Məzmun *</label>
+                                <textarea id="ruleContent" rows="3" placeholder="Qaydanın tam mətni..."></textarea>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn-sm btn-save" id="saveRuleBtn"><i class="fas fa-save"></i> Yadda saxla</button>
+                            <button class="btn-sm btn-cancel" id="cancelRuleFormBtn">Ləğv et</button>
+                        </div>
+                    </div>
+                    <div class="admin-item-list" id="adminRulesList"></div>
+                </div>
+                <div class="admin-tab-content" id="tabDiscount">
+                    <div class="admin-toolbar">
+                        <span class="admin-count" id="discountCount">0 endirimli məhsul</span>
+                    </div>
+                    <p class="admin-sub">Endirimli məhsulları idarə etmək üçün məhsullar tabında hər məhsula endirim faizi əlavə edin.</p>
+                    <div class="admin-item-list" id="adminDiscountList"></div>
+                </div>
+                <button class="btn-sm btn-cancel" id="adminLogout" style="margin-top:8px;">
+                    <i class="fas fa-sign-out-alt"></i> Çıxış
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ==========================================
+        // THEME
+        // ==========================================
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            updateThemeIcon(next);
+        });
+
+        function updateThemeIcon(theme) {
+            const icon = themeToggle.querySelector('i');
+            icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        // ==========================================
+        // DISCOUNT BAR (SLIDING)
+        // ==========================================
+        function updateDiscountBar() {
+            const container = document.getElementById('discountText');
+            const discountProducts = products.filter(p => p.discount && p.discount > 0 && p.stock > 0);
+            if (discountProducts.length === 0) {
+                container.innerHTML = '<span class="discount-item">🏷️ Hazırda endirimli məhsul yoxdur</span>';
+                return;
+            }
+            // Duplicate items for seamless loop
+            let items = [];
+            for (let i = 0; i < 3; i++) {
+                discountProducts.forEach(p => {
+                    const newPrice = (p.price * (1 - p.discount/100)).toFixed(2);
+                    items.push(`
+                        <span class="discount-item">
+                            ${p.icon || '💿'} ${p.name}
+                            <span class="old-price">${p.price} AZN</span>
+                            <span class="new-price">${newPrice} AZN</span>
+                            <span class="badge">-${p.discount}%</span>
+                        </span>
+                    `);
+                });
+            }
+            container.innerHTML = items.join('');
+        }
+
+        // ==========================================
+        // DISCOUNT MENU
+        // ==========================================
+        function updateDiscountMenu() {
+            const container = document.getElementById('discountItems');
+            const discountProducts = products.filter(p => p.discount && p.discount > 0 && p.stock > 0);
+            if (discountProducts.length === 0) {
+                container.innerHTML = '<span class="discount-tag">Hazırda yoxdur</span>';
+                return;
+            }
+            container.innerHTML = discountProducts.map(p => 
+                `<span class="discount-tag">🔥 ${p.name} - ${p.discount}%</span>`
+            ).join('');
+        }
+
+        // ==========================================
+        // ADMIN SESSION
+        // ==========================================
+        const ADMIN_USER = 'puays2026puays';
+        const ADMIN_PASS = 'puays2026puays';
+        const ADMIN_SESSION_KEY = 'purple_admin_logged_in';
+
+        function isAdminLoggedIn() {
+            return localStorage.getItem(ADMIN_SESSION_KEY) === 'true';
+        }
+
+        function setAdminLoggedIn(value) {
+            localStorage.setItem(ADMIN_SESSION_KEY, value ? 'true' : 'false');
+        }
+
+        // ==========================================
+        // DATA LAYER
+        // ==========================================
+        const STORAGE_KEY_PRODUCTS = 'purple_products';
+        const STORAGE_KEY_PROOF = 'purple_proof';
+        const STORAGE_KEY_RULES = 'purple_rules';
+        const STORAGE_KEY_CART = 'purple_cart';
+
+        const defaultProducts = [{
+            id: 'p1',
+            name: 'BTS – BE (Deluxe Edition)',
+            price: 65,
+            desc: 'Orijinal BTS albomu, fotokitabça + poster',
+            icon: '💿',
+            category: 'album',
+            stock: 8,
+            images: [],
+            discount: 10
+        }, {
+            id: 'p2',
+            name: 'BLACKPINK – THE ALBUM',
+            price: 55,
+            desc: 'BLACKPINK tam albom, 2 versiya',
+            icon: '🖤',
+            category: 'album',
+            stock: 0,
+            images: [],
+            discount: 0
+        }, {
+            id: 'p3',
+            name: 'BT21 Plush Set',
+            price: 45,
+            desc: 'BT21 peluş dəsti (7 ədəd)',
+            icon: '🧸',
+            category: 'peluşlar',
+            stock: 3,
+            images: [],
+            discount: 15
+        }, {
+            id: 'p4',
+            name: 'BTS Poster Set (5 ədəd)',
+            price: 25,
+            desc: '5 fərqli BTS posteri, A2 ölçü',
+            icon: '🖼️',
+            category: 'merch',
+            stock: 10,
+            images: [],
+            discount: 0
+        }, {
+            id: 'p5',
+            name: 'BLACKPINK Poster (Born Pink)',
+            price: 12,
+            desc: 'Born Pink turu posteri, yüksək keyfiyyət',
+            icon: '🖼️',
+            category: 'merch',
+            stock: 15,
+            images: [],
+            discount: 5
+        }, {
+            id: 'p6',
+            name: 'BTS + BLACKPINK Kart Dəsti',
+            price: 120,
+            desc: 'BTS BE + BLACKPINK THE ALBUM + posterlər',
+            icon: '🃏',
+            category: 'kartlar',
+            stock: 2,
+            images: [],
+            discount: 20
+        }];
+
+        function loadData(key, defaultVal) {
+            const stored = localStorage.getItem(key);
+            let data = stored ? JSON.parse(stored) : null;
+            if (data && Array.isArray(data)) {
+                if (key === STORAGE_KEY_PRODUCTS) {
+                    data = data.map(p => ({
+                        ...p,
+                        price: typeof p.price === 'string' ? parseFloat(p.price.replace(/[^0-9.]/g, '')) : p.price,
+                        stock: p.stock || 0,
+                        images: p.images || [],
+                        discount: p.discount || 0
+                    }));
+                }
+                return data;
+            }
+            localStorage.setItem(key, JSON.stringify(defaultVal));
+            return defaultVal;
+        }
+
+        function saveData(key, data) {
+            localStorage.setItem(key, JSON.stringify(data));
+        }
+
+        function generateId() {
+            return 'id' + Date.now() + Math.random().toString(36).slice(2, 8);
+        }
+
+        // ==========================================
+        // STATE
+        // ==========================================
+        let products = loadData(STORAGE_KEY_PRODUCTS, defaultProducts);
+        let proofItems = loadData(STORAGE_KEY_PROOF, []);
+        let rules = loadData(STORAGE_KEY_RULES, [
+            { id: 'r1', title: 'Çatdırılma şərtləri', icon: '🚚',
+            content: 'Sifarişlər Bakı daxilində 1-2 iş günü, regionlara 3-5 iş günü ərzində çatdırılır. Çatdırılma haqqı sifarişin məbləğindən asılı olaraq dəyişir.' },
+            { id: 'r2', title: 'Geri qaytarma siyasəti', icon: '🔄',
+                content: 'Məhsul qüsurlu və ya səhv göndərildikdə, qəbzdən sonra 7 gün ərzində geri qaytarma mümkündür. Məhsul orijinal qablaşdırmasında olmalıdır.' },
+            { id: 'r3', title: 'Ödəniş üsulları', icon: '💳',
+                content: 'Hesaba köçürmə, bank kartı ilə ödəniş və nağd (çatdırılma zamanı) ödəniş mümkündür. Bütün ödənişlər təhlükəsizdir.' }
+        ]);
+
+        let cart = loadData(STORAGE_KEY_CART, []);
+        let activeCategory = 'all';
+        let sortOption = 'stock-desc';
+        let currentProductId = null;
+
+        // ==========================================
+        // MUSIC PLAYER (swim.mp3 auto-start, no badge)
+        // ==========================================
+        const audio = document.getElementById('audioPlayer');
+        const musicBtn = document.getElementById('musicBtn');
+        const nowPlaying = document.getElementById('nowPlaying');
+        const songName = document.getElementById('songName');
+        const musicNotes = document.getElementById('musicNotes');
+
+        // Path: mp3/swim.mp3, mp3/magicshop.mp3, mp3/mikrokosmos.mp3
+        const songFiles = [
+            'mp3/swim.mp3',
+            'mp3/magicshop.mp3',
+            'mp3/mikrokosmos.mp3'
+        ];
+        let currentSongIndex = 0;
+        let isPlaying = false;
+
+        const noteEmojis = ['🎵', '🎶', '♫', '♪'];
+
+        function createNote() {
+            const note = document.createElement('span');
+            note.className = 'note';
+            note.textContent = noteEmojis[Math.floor(Math.random() * noteEmojis.length)];
+            note.style.left = Math.random() * 70 + '%';
+            note.style.fontSize = (1.2 + Math.random() * 0.8) + 'rem';
+            note.style.animationDuration = (2.5 + Math.random() * 0.8) + 's';
+            musicNotes.appendChild(note);
+            setTimeout(() => note.remove(), 3500);
+        }
+
+        let noteInterval = null;
+
+        function startNotes() {
+            if (noteInterval) return;
+            createNote();
+            noteInterval = setInterval(createNote, 650);
+        }
+
+        function stopNotes() {
+            if (noteInterval) {
+                clearInterval(noteInterval);
+                noteInterval = null;
+            }
+            musicNotes.innerHTML = '';
+        }
+
+        function playSong(index) {
+            if (songFiles.length === 0) {
+                songName.textContent = 'Mahnı yoxdur';
+                return;
+            }
+            const file = songFiles[index];
+            const displayName = file.split('/').pop().replace('.mp3', '').replace(/_/g, ' ').replace(/\b\w/g, l => l
+            .toUpperCase());
+            audio.src = file;
+            audio.load();
+            audio.play()
+                .then(() => {
+                    isPlaying = true;
+                    songName.textContent = displayName;
+                    nowPlaying.classList.add('show');
+                    setTimeout(() => {
+                        nowPlaying.classList.remove('show');
+                    }, 3000);
+                    startNotes();
+                })
+                .catch(err => {
+                    console.warn('Audio error:', err);
+                    // Try next song after delay
+                    setTimeout(() => {
+                        currentSongIndex = (currentSongIndex + 1) % songFiles.length;
+                        playSong(currentSongIndex);
+                    }, 1500);
+                });
+        }
+
+        // Auto-start with swim.mp3 on page load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                if (songFiles.length > 0 && !isPlaying) {
+                    currentSongIndex = 0; // swim.mp3
+                    playSong(0);
+                }
+            }, 600);
+        });
+
+        audio.addEventListener('ended', function() {
+            if (songFiles.length > 0) {
+                currentSongIndex = (currentSongIndex + 1) % songFiles.length;
+                playSong(currentSongIndex);
+            }
+        });
+
+        musicBtn.addEventListener('click', function() {
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                songName.textContent = 'Dayandı';
+                nowPlaying.classList.add('show');
+                setTimeout(() => {
+                    nowPlaying.classList.remove('show');
+                }, 2000);
+                stopNotes();
+            } else {
+                // Resume or start next
+                if (audio.src) {
+                    audio.play().then(() => {
+                        isPlaying = true;
+                        startNotes();
+                    }).catch(() => {
+                        currentSongIndex = (currentSongIndex + 1) % songFiles.length;
+                        playSong(currentSongIndex);
+                    });
+                } else {
+                    currentSongIndex = 0;
+                    playSong(0);
+                }
+            }
+        });
+
+        // ==========================================
+        // CAT GIF with patty emoji (free)
+        // ==========================================
+        const catGif = document.getElementById('catGif');
+        const pattyEmoji = document.getElementById('pattyEmoji');
+
+        catGif.addEventListener('click', function() {
+            pattyEmoji.classList.remove('show');
+            void pattyEmoji.offsetWidth;
+            pattyEmoji.classList.add('show');
+            setTimeout(() => {
+                pattyEmoji.classList.remove('show');
+            }, 900);
+        });
+
+        // ==========================================
+        // CART FUNCTIONS
+        // ==========================================
+        function updateCartBadge() {
+            const badge = document.getElementById('cartBadge');
+            const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+            badge.textContent = total;
+        }
+
+        function getProductStock(productId) {
+            const product = products.find(p => p.id === productId);
+            return product ? product.stock : 0;
+        }
+
+        function getCartQuantity(productId) {
+            const item = cart.find(i => i.id === productId);
+            return item ? item.quantity : 0;
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cartItems');
+            const totalEl = document.getElementById('cartTotal');
+            if (!cart.length) {
+                container.innerHTML = `<div class="cart-empty">Səbət boşdur 🛒</div>`;
+                totalEl.textContent = '0 AZN';
+                updateCartBadge();
+                return;
+            }
+            let html = '';
+            let total = 0;
+            cart.forEach(item => {
+                const product = products.find(p => p.id === item.id);
+                if (!product) return;
+                const price = product.price * item.quantity;
+                total += price;
+                const stock = product.stock;
+                html += `
+                    <div class="cart-item">
+                        <div class="item-info">
+                            <span class="item-icon">${product.icon || '💿'}</span>
+                            <div>
+                                <div class="item-name">${product.name}</div>
+                                <div class="item-price">${product.price} AZN</div>
+                            </div>
+                        </div>
+                        <div class="item-qty">
+                            <button class="qty-dec" data-id="${item.id}">−</button>
+                            <span class="qty-num">${item.quantity}</span>
+                            <button class="qty-inc" data-id="${item.id}" ${item.quantity >= stock ? 'disabled' : ''}>+</button>
+                        </div>
+                        <button class="remove-btn" data-id="${item.id}"><i class="fas fa-times"></i></button>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+            totalEl.textContent = total.toFixed(2) + ' AZN';
+            updateCartBadge();
+
+            document.querySelectorAll('.qty-inc').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    const product = products.find(p => p.id === id);
+                    const item = cart.find(i => i.id === id);
+                    if (item && product && item.quantity < product.stock) {
+                        item.quantity += 1;
+                        saveData(STORAGE_KEY_CART, cart);
+                        renderCart();
+                        renderProducts();
+                    }
+                });
+            });
+            document.querySelectorAll('.qty-dec').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    const item = cart.find(i => i.id === id);
+                    if (item) {
+                        if (item.quantity > 1) {
+                            item.quantity -= 1;
+                        } else {
+                            cart = cart.filter(i => i.id !== id);
+                        }
+                        saveData(STORAGE_KEY_CART, cart);
+                        renderCart();
+                        renderProducts();
+                    }
+                });
+            });
+            document.querySelectorAll('.remove-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    cart = cart.filter(item => item.id !== id);
+                    saveData(STORAGE_KEY_CART, cart);
+                    renderCart();
+                    renderProducts();
+                });
+            });
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            if (product.stock <= 0) {
+                alert('Bu məhsul hazırda yoxdur!');
+                return;
+            }
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                if (existing.quantity < product.stock) {
+                    existing.quantity += 1;
+                } else {
+                    alert('Stokda bu qədər məhsul yoxdur!');
+                    return;
+                }
+            } else {
+                cart.push({ id: productId, quantity: 1 });
+            }
+            saveData(STORAGE_KEY_CART, cart);
+            renderCart();
+            renderProducts();
+        }
+
+        function clearCart() {
+            if (cart.length === 0) return;
+            if (confirm('Səbəti təmizləmək istədiyinizə əminsiniz?')) {
+                cart = [];
+                saveData(STORAGE_KEY_CART, cart);
+                renderCart();
+                renderProducts();
+            }
+        }
+
+        // ==========================================
+        // CHECKOUT - Instagram
+        // ==========================================
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Səbət boşdur!');
+                return;
+            }
+            const items = cart.map(item => {
+                const product = products.find(p => p.id === item.id);
+                return `${product.icon || '💿'} ${product.name} (${item.quantity} ədəd)`;
+            }).join('\n');
+            const total = cart.reduce((sum, item) => {
+                const product = products.find(p => p.id === item.id);
+                return sum + (product ? product.price * item.quantity : 0);
+            }, 0);
+
+            const message =
+                `🛍️ *Sifarişim* 🛍️\n\n${items}\n\n💰 *Ümumi:* ${total.toFixed(2)} AZN\n\n🙏 Təşəkkürlər! 💜 PurpleUniverse\n\n📦 Sifarişinizi gözləyirik!`;
+
+            navigator.clipboard.writeText(message).then(() => {
+                alert('✅ Sifariş məlumatları kopyalandı! İndi Instagram-da bizə yazın.');
+                window.open('https://www.instagram.com/purpleuniversebaku/', '_blank');
+            }).catch(() => {
+                window.open('https://www.instagram.com/purpleuniversebaku/', '_blank');
+            });
+
+            cart = [];
+            saveData(STORAGE_KEY_CART, cart);
+            renderCart();
+            renderProducts();
+            document.getElementById('cartOverlay').classList.remove('active');
+        }
+
+        // ==========================================
+        // RENDER FUNCTIONS
+        // ==========================================
+        function getFilteredAndSortedProducts() {
+            let filtered = products;
+            if (activeCategory !== 'all') {
+                filtered = filtered.filter(p => p.category === activeCategory);
+            }
+            if (sortOption === 'stock-desc') {
+                filtered = [...filtered].sort((a, b) => {
+                    if (a.stock === 0 && b.stock === 0) return 0;
+                    if (a.stock === 0) return 1;
+                    if (b.stock === 0) return -1;
+                    return b.stock - a.stock;
+                });
+            } else if (sortOption === 'price-asc') {
+                const inStock = filtered.filter(p => p.stock > 0).sort((a, b) => a.price - b.price);
+                const outOfStock = filtered.filter(p => p.stock === 0);
+                filtered = [...inStock, ...outOfStock];
+            } else if (sortOption === 'price-desc') {
+                const inStock = filtered.filter(p => p.stock > 0).sort((a, b) => b.price - a.price);
+                const outOfStock = filtered.filter(p => p.stock === 0);
+                filtered = [...inStock, ...outOfStock];
+            }
+            return filtered;
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            if (!grid) return;
+            const filtered = getFilteredAndSortedProducts();
+            if (!filtered.length) {
+                grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; color:var(--text-secondary); padding:40px 0;">Bu kateqoriyada məhsul yoxdur.</p>`;
+            } else {
+                grid.innerHTML = filtered.map(p => {
+                    const inCart = cart.some(item => item.id === p.id);
+                    const qtyInCart = getCartQuantity(p.id);
+                    const stock = p.stock || 0;
+                    const outOfStock = stock <= 0 || (inCart && qtyInCart >= stock);
+                    const thumbImage = p.images && p.images.length > 0 ? p.images[0] : null;
+                    const discount = p.discount || 0;
+                    const discountedPrice = discount > 0 ? (p.price * (1 - discount/100)).toFixed(2) : null;
+                    return `
+                        <div class="product-card fade-up" data-id="${p.id}">
+                            ${discount > 0 ? `<span class="discount-badge">-${discount}%</span>` : ''}
+                            ${thumbImage ? `<img class="product-thumb" src="${thumbImage}" alt="${p.name}" />` : `<span class="product-icon">${p.icon || '💿'}</span>`}
+                            <h4>${p.name}</h4>
+                            <p class="product-desc">${p.desc || ''}</p>
+                            <p class="product-price">${discountedPrice ? `<span style="text-decoration:line-through; color:var(--text-secondary); font-size:0.9rem;">${p.price} AZN</span> ${discountedPrice} AZN` : `${p.price} AZN`}</p>
+                            <p class="product-stock">${stock > 0 ? `<span class="in-stock">✅ Stokda: ${stock} ədəd</span>` : `<span class="out-of-stock">❌ Yoxdur</span>`}</p>
+                            <span class="product-tag">${p.category || 'Məhsul'}</span>
+                            <button class="add-to-cart-btn ${inCart ? 'in-cart' : ''}" data-id="${p.id}" ${outOfStock ? 'disabled' : ''}>
+                                <i class="fas ${inCart ? 'fa-check' : 'fa-plus'}"></i>
+                                ${inCart ? `Səbətdə (${qtyInCart})` : (outOfStock ? 'Yoxdur' : 'Səbətə əlavə et')}
+                            </button>
+                            <div class="click-hint">👆 Ətraflı bax</div>
+                        </div>
+                    `;
+                }).join('');
+                document.querySelectorAll('.product-card.fade-up').forEach(el => {
+                    setTimeout(() => el.classList.add('visible'), 50);
+                });
+            }
+            document.getElementById('statProducts').textContent = products.length;
+
+            document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const id = this.dataset.id;
+                    if (!this.disabled) {
+                        addToCart(id);
+                    }
+                });
+            });
+
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (e.target.closest('.add-to-cart-btn')) return;
+                    const id = this.dataset.id;
+                    if (id) openDetail(id);
+                });
+            });
+
+            updateDiscountBar();
+            updateDiscountMenu();
+            renderAdminDiscountList();
+        }
+
+        // ==========================================
+        // PRODUCT DETAIL
+        // ==========================================
+        function openDetail(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            currentProductId = productId;
+            const overlay = document.getElementById('detailOverlay');
+            const content = document.getElementById('detailContent');
+
+            const images = product.images || [];
+            const stock = product.stock || 0;
+            const qtyInCart = getCartQuantity(productId);
+            const outOfStock = stock <= 0 || (qtyInCart >= stock);
+            const discount = product.discount || 0;
+            const discountedPrice = discount > 0 ? (product.price * (1 - discount/100)).toFixed(2) : null;
+
+            let mainImageHtml = '';
+            let galleryHtml = '';
+
+            if (images.length > 0) {
+                mainImageHtml = `<img class="detail-main-image" id="detailMainImage" src="${images[0]}" alt="${product.name}" />`;
+                galleryHtml = images.map((img, idx) => `
+                    <img class="thumb-image ${idx === 0 ? 'active' : ''}" src="${img}" alt="${product.name}" data-index="${idx}" onclick="document.getElementById('detailMainImage').src='${img}'; document.querySelectorAll('.thumb-image').forEach(t => t.classList.remove('active')); this.classList.add('active');" />
+                `).join('');
+            } else {
+                mainImageHtml = `<div style="text-align:center; font-size:4rem; padding:30px; background:var(--gray-100); border-radius:var(--radius-sm); margin-bottom:12px;">${product.icon || '💿'}</div>`;
+            }
+
+            content.innerHTML = `
+                ${mainImageHtml}
+                ${images.length > 1 ? `<div class="detail-gallery">${galleryHtml}</div>` : ''}
+                <div class="detail-info">
+                    <h2>${product.name}</h2>
+                    <p class="detail-price">${discountedPrice ? `<span style="text-decoration:line-through; color:var(--text-secondary); font-size:1rem;">${product.price} AZN</span> ${discountedPrice} AZN ${discount > 0 ? `<span style="background:var(--pink-600); color:#fff; padding:2px 10px; border-radius:40px; font-size:0.7rem;">-${discount}%</span>` : ''}` : `${product.price} AZN`}</p>
+                    <p class="detail-stock">${stock > 0 ? `✅ Stokda: ${stock} ədəd` : '❌ Hazırda yoxdur'}</p>
+                    <p class="detail-desc">${product.desc || 'Məhsul haqqında ətraflı məlumat yoxdur.'}</p>
+                    <span class="detail-tag">${product.category || 'Məhsul'}</span>
+                </div>
+                <div class="detail-actions">
+                    <button class="btn-sm btn-primary add-to-cart-detail" data-id="${product.id}" ${outOfStock ? 'disabled' : ''}>
+                        <i class="fas fa-plus"></i> ${outOfStock ? 'Yoxdur' : 'Səbətə əlavə et'}
+                    </button>
+                    <button class="btn-sm btn-cancel detail-close-btn">Bağla</button>
+                </div>
+            `;
+
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            content.querySelector('.detail-close-btn').addEventListener('click', closeDetail);
+            const addBtn = content.querySelector('.add-to-cart-detail');
+            if (addBtn && !addBtn.disabled) {
+                addBtn.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    addToCart(id);
+                    const product = products.find(p => p.id === id);
+                    if (product) {
+                        const qty = getCartQuantity(id);
+                        if (qty >= product.stock) {
+                            this.disabled = true;
+                            this.innerHTML = '<i class="fas fa-check"></i> Stok bitdi';
+                        }
+                    }
+                    renderProducts();
+                });
+            }
+        }
+
+        function closeDetail() {
+            document.getElementById('detailOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('detailClose').addEventListener('click', closeDetail);
+        document.getElementById('detailOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeDetail();
+        });
+
+        // ==========================================
+        // ADMIN RENDER FUNCTIONS
+        // ==========================================
+        function renderAdminProductList() {
+            const list = document.getElementById('adminProductList');
+            if (!list) return;
+            if (!products.length) {
+                list.innerHTML = `<p style="color:var(--text-secondary); padding:16px 0; text-align:center;">Heç bir məhsul yoxdur.</p>`;
+                document.getElementById('productCount').textContent = '0 məhsul';
+                return;
+            }
+            list.innerHTML = products.map(p => `
+                <div class="admin-item" data-id="${p.id}">
+                    <div class="item-info">
+                        <span class="item-icon">${p.icon || '💿'}</span>
+                        <span class="item-name">${p.name}</span>
+                        <span class="item-detail">${p.price} AZN · Stok: ${p.stock || 0} · ${p.category || 'Məhsul'} ${p.discount > 0 ? `· 🔥${p.discount}%` : ''}</span>
+                    </div>
+                    <div class="item-actions">
+                        <button class="btn-sm btn-edit edit-product-btn" data-id="${p.id}"><i class="fas fa-pen"></i></button>
+                        <button class="btn-sm btn-delete delete-product-btn" data-id="${p.id}"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+            `).join('');
+            document.getElementById('productCount').textContent = `${products.length} məhsul`;
+        }
+
+        function renderProofGallery() {
+            const gallery = document.getElementById('proofGallery');
+            if (!gallery) return;
+            if (!proofItems.length) {
+                gallery.innerHTML = `<div class="proof-empty">Hələ proof yüklənməyib. Admin panel vasitəsi ilə əlavə edin.</div>`;
+                return;
+            }
+            gallery.innerHTML = proofItems.map(m => `
+                <div class="proof-item">
+                    <img class="proof-thumb" src="${m.data}" alt="${m.caption || 'Proof'}" />
+                    <div class="proof-caption">${m.caption || ''}</div>
+                </div>
+            `).join('');
+        }
+
+        function renderAdminProofList() {
+            const list = document.getElementById('adminProofList');
+            if (!list) return;
+            if (!proofItems.length) {
+                list.innerHTML = `<p style="color:var(--text-secondary); padding:16px 0; text-align:center;">Heç bir proof yoxdur.</p>`;
+                document.getElementById('proofCount').textContent = '0 proof';
+                return;
+            }
+            list.innerHTML = proofItems.map(m => `
+                <div class="admin-item" data-id="${m.id}">
+                    <div class="item-info">
+                        <span class="item-icon">🖼️</span>
+                        <span class="item-name">${m.caption || 'Proof'}</span>
+                    </div>
+                    <div class="item-actions">
+                        <button class="btn-sm btn-edit edit-proof-btn" data-id="${m.id}"><i class="fas fa-pen"></i></button>
+                        <button class="btn-sm btn-delete delete-proof-btn" data-id="${m.id}"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+            `).join('');
+            document.getElementById('proofCount').textContent = `${proofItems.length} proof`;
+        }
+
+        function renderAdminDiscountList() {
+            const list = document.getElementById('adminDiscountList');
+            if (!list) return;
+            const discountProducts = products.filter(p => p.discount && p.discount > 0 && p.stock > 0);
+            if (!discountProducts.length) {
+                list.innerHTML = `<p style="color:var(--text-secondary); padding:16px 0; text-align:center;">Hazırda endirimli məhsul yoxdur.</p>`;
+                document.getElementById('discountCount').textContent = '0 endirimli məhsul';
+                return;
+            }
+            list.innerHTML = discountProducts.map(p => `
+                <div class="admin-item">
+                    <div class="item-info">
+                        <span class="item-icon">${p.icon || '💿'}</span>
+                        <span class="item-name">${p.name}</span>
+                        <span class="item-detail">🔥 ${p.discount}% endirim · ${(p.price * (1 - p.discount/100)).toFixed(2)} AZN</span>
+                    </div>
+                </div>
+            `).join('');
+            document.getElementById('discountCount').textContent = `${discountProducts.length} endirimli məhsul`;
+        }
+
+        function renderRules() {
+            const grid = document.getElementById('rulesGrid');
+            if (!grid) return;
+            if (!rules.length) {
+                grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; color:var(--text-secondary); padding:40px 0;">Hələ qayda əlavə edilməyib.</div>`;
+                return;
+            }
+            grid.innerHTML = rules.map(r => `
+                <div class="rule-card" data-id="${r.id}">
+                    <div class="rule-header">
+                        <span class="rule-icon">${r.icon || '📌'}</span>
+                        <span class="rule-title">${r.title}</span>
+                        <span class="rule-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="rule-content"><p>${r.content}</p></div>
+                </div>
+            `).join('');
+
+            document.querySelectorAll('.rule-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('open');
+                });
+            });
+        }
+
+        function renderAdminRulesList() {
+            const list = document.getElementById('adminRulesList');
+            if (!list) return;
+            if (!rules.length) {
+                list.innerHTML = `<p style="color:var(--text-secondary); padding:16px 0; text-align:center;">Heç bir qayda yoxdur.</p>`;
+                document.getElementById('rulesCount').textContent = '0 qayda';
+                return;
+            }
+            list.innerHTML = rules.map(r => `
+                <div class="admin-item" data-id="${r.id}">
+                    <div class="item-info">
+                        <span class="item-icon">${r.icon || '📌'}</span>
+                        <span class="item-name">${r.title}</span>
+                        <span class="item-detail">${r.content.substring(0, 30)}...</span>
+                    </div>
+                    <div class="item-actions">
+                        <button class="btn-sm btn-edit edit-rule-btn" data-id="${r.id}"><i class="fas fa-pen"></i></button>
+                        <button class="btn-sm btn-delete delete-rule-btn" data-id="${r.id}"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+            `).join('');
+            document.getElementById('rulesCount').textContent = `${rules.length} qayda`;
+        }
+
+        function renderAll() {
+            renderProducts();
+            renderProofGallery();
+            renderRules();
+            renderAdminProductList();
+            renderAdminProofList();
+            renderAdminRulesList();
+            renderCart();
+            updateDiscountBar();
+            updateDiscountMenu();
+            renderAdminDiscountList();
+        }
+
+        // ==========================================
+        // FILTER & SORT
+        // ==========================================
+        document.querySelectorAll('#categoryFilterGroup .filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('#categoryFilterGroup .filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                activeCategory = this.dataset.category;
+                renderProducts();
+            });
+        });
+
+        document.getElementById('sortSelect').addEventListener('change', function() {
+            sortOption = this.value;
+            renderProducts();
+        });
+
+        // ==========================================
+        // CART TOGGLE
+        // ==========================================
+        document.getElementById('cartToggle').addEventListener('click', function() {
+            document.getElementById('cartOverlay').classList.toggle('active');
+            renderCart();
+        });
+
+        document.getElementById('cartClose').addEventListener('click', function() {
+            document.getElementById('cartOverlay').classList.remove('active');
+        });
+
+        document.getElementById('cartOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+            }
+        });
+
+        document.getElementById('clearCartBtn').addEventListener('click', clearCart);
+        document.getElementById('checkoutBtn').addEventListener('click', checkout);
+
+        // ==========================================
+        // ADMIN LOGIC
+        // ==========================================
+        const adminOverlay = document.getElementById('adminOverlay');
+        const adminLogin = document.getElementById('adminLogin');
+        const adminDashboard = document.getElementById('adminDashboard');
+        const loginForm = document.getElementById('loginForm');
+        const loginError = document.getElementById('loginError');
+        const adminClose = document.getElementById('adminClose');
+        const adminTrigger = document.getElementById('adminTrigger');
+        const adminLogout = document.getElementById('adminLogout');
+
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = {
+            tabProducts: document.getElementById('tabProducts'),
+            tabProof: document.getElementById('tabProof'),
+            tabRules: document.getElementById('tabRules'),
+            tabDiscount: document.getElementById('tabDiscount')
+        };
+
+        function switchTab(tabId) {
+            tabBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.tab === tabId);
+            });
+            Object.keys(tabContents).forEach(key => {
+                tabContents[key].classList.toggle('active', key === tabId);
+            });
+            if (tabId === 'tabProducts') renderAdminProductList();
+            if (tabId === 'tabProof') renderAdminProofList();
+            if (tabId === 'tabRules') renderAdminRulesList();
+            if (tabId === 'tabDiscount') renderAdminDiscountList();
+        }
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchTab(btn.dataset.tab);
+            });
+        });
+
+        function openAdminPanel() {
+            adminOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('productForm').classList.remove('active');
+            document.getElementById('proofForm').classList.remove('active');
+            document.getElementById('ruleForm').classList.remove('active');
+            document.getElementById('editProductId').value = '';
+            document.getElementById('editProofId').value = '';
+            document.getElementById('editRuleId').value = '';
+            document.getElementById('pImages').value = '';
+            document.getElementById('pImageList').innerHTML = '';
+            if (isAdminLoggedIn()) {
+                adminLogin.style.display = 'none';
+                adminDashboard.classList.add('active');
+                loginError.classList.remove('show');
+                switchTab('tabProducts');
+                renderAll();
+            } else {
+                adminLogin.style.display = 'block';
+                adminDashboard.classList.remove('active');
+                loginError.classList.remove('show');
+                document.getElementById('loginUser').value = '';
+                document.getElementById('loginPass').value = '';
+            }
+        }
+
+        function closeAdminPanel() {
+            adminOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            adminLogin.style.display = 'block';
+            adminDashboard.classList.remove('active');
+            loginError.classList.remove('show');
+            document.getElementById('productForm').classList.remove('active');
+            document.getElementById('proofForm').classList.remove('active');
+            document.getElementById('ruleForm').classList.remove('active');
+        }
+
+        adminTrigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            openAdminPanel();
+        });
+
+        adminClose.addEventListener('click', closeAdminPanel);
+        adminOverlay.addEventListener('click', function(e) {
+            if (e.target === adminOverlay) closeAdminPanel();
+        });
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('loginUser').value.trim();
+            const pass = document.getElementById('loginPass').value.trim();
+            if (user === ADMIN_USER && pass === ADMIN_PASS) {
+                setAdminLoggedIn(true);
+                adminLogin.style.display = 'none';
+                adminDashboard.classList.add('active');
+                loginError.classList.remove('show');
+                switchTab('tabProducts');
+                renderAll();
+            } else {
+                loginError.classList.add('show');
+            }
+        });
+
+        adminLogout.addEventListener('click', function() {
+            setAdminLoggedIn(false);
+            adminLogin.style.display = 'block';
+            adminDashboard.classList.remove('active');
+            loginError.classList.remove('show');
+            document.getElementById('loginUser').value = '';
+            document.getElementById('loginPass').value = '';
+            document.getElementById('productForm').classList.remove('active');
+            document.getElementById('proofForm').classList.remove('active');
+            document.getElementById('ruleForm').classList.remove('active');
+            closeAdminPanel();
+        });
+
+        // ==========================================
+        // PRODUCT CRUD
+        // ==========================================
+        const productForm = document.getElementById('productForm');
+        const editProductId = document.getElementById('editProductId');
+        const pName = document.getElementById('pName');
+        const pPrice = document.getElementById('pPrice');
+        const pDesc = document.getElementById('pDesc');
+        const pCategory = document.getElementById('pCategory');
+        const pStock = document.getElementById('pStock');
+        const pIcon = document.getElementById('pIcon');
+        const pImages = document.getElementById('pImages');
+        const pImageList = document.getElementById('pImageList');
+        const pDiscount = document.getElementById('pDiscount');
+        const saveProductBtn = document.getElementById('saveProductBtn');
+        const cancelProductFormBtn = document.getElementById('cancelProductFormBtn');
+        const showAddProductForm = document.getElementById('showAddProductForm');
+
+        let isEditingProduct = false;
+        let tempImageFiles = [];
+
+        pImages.addEventListener('change', function() {
+            const files = Array.from(this.files);
+            tempImageFiles = files;
+            pImageList.innerHTML = files.map((f, idx) =>
+                `<span class="file-tag">🖼️ ${f.name} <span class="remove-file" data-index="${idx}">&times;</span></span>`
+            ).join('');
+            pImageList.querySelectorAll('.remove-file').forEach(el => {
+                el.addEventListener('click', function() {
+                    const idx = parseInt(this.dataset.index);
+                    tempImageFiles.splice(idx, 1);
+                    const dt = new DataTransfer();
+                    tempImageFiles.forEach(f => dt.items.add(f));
+                    pImages.files = dt.files;
+                    pImageList.innerHTML = tempImageFiles.map((f, i) =>
+                        `<span class="file-tag">🖼️ ${f.name} <span class="remove-file" data-index="${i}">&times;</span></span>`
+                    ).join('');
+                    pImageList.querySelectorAll('.remove-file').forEach(el2 => {
+                        el2.addEventListener('click', function() {
+                            const idx2 = parseInt(this.dataset.index);
+                            tempImageFiles.splice(idx2, 1);
+                            const dt2 = new DataTransfer();
+                            tempImageFiles.forEach(f => dt2.items.add(f));
+                            pImages.files = dt2.files;
+                            pImageList.innerHTML = tempImageFiles.map((f, i) =>
+                                `<span class="file-tag">🖼️ ${f.name} <span class="remove-file" data-index="${i}">&times;</span></span>`
+                            ).join('');
+                        });
+                    });
+                });
+            });
+        });
+
+        function resetProductForm() {
+            editProductId.value = '';
+            pName.value = '';
+            pPrice.value = '';
+            pDesc.value = '';
+            pCategory.value = 'album';
+            pStock.value = '10';
+            pIcon.value = '💿';
+            pDiscount.value = '0';
+            pImages.value = '';
+            pImageList.innerHTML = '';
+            tempImageFiles = [];
+            isEditingProduct = false;
+            document.getElementById('productFormTitle').textContent = '➕ Yeni məhsul';
+            productForm.classList.remove('active');
+        }
+
+        showAddProductForm.addEventListener('click', () => {
+            resetProductForm();
+            productForm.classList.add('active');
+            pName.focus();
+        });
+
+        cancelProductFormBtn.addEventListener('click', resetProductForm);
+
+        saveProductBtn.addEventListener('click', () => {
+            const name = pName.value.trim();
+            const price = parseFloat(pPrice.value);
+            const desc = pDesc.value.trim();
+            const category = pCategory.value;
+            const stock = parseInt(pStock.value) || 0;
+            const icon = pIcon.value.trim() || '💿';
+            const discount = parseInt(pDiscount.value) || 0;
+
+            if (!name || isNaN(price) || price < 0 || stock < 0) {
+                alert('Ad, düzgün qiymət (rəqəm) və stok sayı (0 və ya daha çox) daxil edin!');
+                return;
+            }
+
+            const imagePromises = [];
+            if (tempImageFiles.length > 0) {
+                for (let file of tempImageFiles) {
+                    const promise = new Promise((resolve) => {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            resolve(e.target.result);
+                        };
+                        reader.readAsDataURL(file);
+                    });
+                    imagePromises.push(promise);
+                }
+            }
+
+            Promise.all(imagePromises).then((images) => {
+                if (isEditingProduct) {
+                    const id = editProductId.value;
+                    const idx = products.findIndex(p => p.id === id);
+                    if (idx !== -1) {
+                        products[idx] = {
+                            ...products[idx],
+                            name,
+                            price,
+                            desc,
+                            category,
+                            stock,
+                            icon,
+                            images: images.length > 0 ? images : products[idx].images,
+                            discount: discount
+                        };
+                        saveData(STORAGE_KEY_PRODUCTS, products);
+                        renderAll();
+                        resetProductForm();
+                        closeAdminPanel();
+                        openDetail(id);
+                    }
+                } else {
+                    const newProduct = {
+                        id: generateId(),
+                        name,
+                        price,
+                        desc,
+                        category,
+                        stock,
+                        icon,
+                        images: images || [],
+                        discount: discount
+                    };
+                    products.push(newProduct);
+                    saveData(STORAGE_KEY_PRODUCTS, products);
+                    renderAll();
+                    resetProductForm();
+                    closeAdminPanel();
+                    openDetail(newProduct.id);
+                }
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            const editBtn = e.target.closest('.edit-product-btn');
+            if (editBtn) {
+                const id = editBtn.dataset.id;
+                const product = products.find(p => p.id === id);
+                if (!product) return;
+                isEditingProduct = true;
+                editProductId.value = id;
+                pName.value = product.name;
+                pPrice.value = product.price;
+                pDesc.value = product.desc || '';
+                pCategory.value = product.category || 'album';
+                pStock.value = product.stock || 0;
+                pIcon.value = product.icon || '💿';
+                pDiscount.value = product.discount || 0;
+                pImageList.innerHTML = '';
+                tempImageFiles = [];
+                if (product.images && product.images.length > 0) {
+                    pImageList.innerHTML = product.images.map((img, idx) =>
+                        `<span class="file-tag">🖼️ Şəkil ${idx+1}</span>`
+                    ).join('');
+                }
+                document.getElementById('productFormTitle').textContent = '✏️ Məhsulu düzənlə';
+                productForm.classList.add('active');
+                pName.focus();
+            }
+
+            const deleteBtn = e.target.closest('.delete-product-btn');
+            if (deleteBtn) {
+                const id = deleteBtn.dataset.id;
+                const product = products.find(p => p.id === id);
+                if (!product) return;
+                if (confirm(`"${product.name}" silinsin?`)) {
+                    products = products.filter(p => p.id !== id);
+                    saveData(STORAGE_KEY_PRODUCTS, products);
+                    renderAll();
+                }
+            }
+        });
+
+        // ==========================================
+        // PROOF CRUD
+        // ==========================================
+        const proofForm = document.getElementById('proofForm');
+        const editProofId = document.getElementById('editProofId');
+        const proofFile = document.getElementById('proofFile');
+        const proofCaption = document.getElementById('proofCaption');
+        const saveProofBtn = document.getElementById('saveProofBtn');
+        const cancelProofFormBtn = document.getElementById('cancelProofFormBtn');
+        const showAddProofForm = document.getElementById('showAddProofForm');
+
+        let isEditingProof = false;
+
+        function resetProofForm() {
+            editProofId.value = '';
+            proofFile.value = '';
+            proofCaption.value = '';
+            isEditingProof = false;
+            document.getElementById('proofFormTitle').textContent = '➕ Proof yüklə';
+            proofForm.classList.remove('active');
+        }
+
+        showAddProofForm.addEventListener('click', () => {
+            resetProofForm();
+            proofForm.classList.add('active');
+        });
+
+        cancelProofFormBtn.addEventListener('click', resetProofForm);
+
+        saveProofBtn.addEventListener('click', () => {
+            const file = proofFile.files[0];
+            const caption = proofCaption.value.trim();
+            if (!file) {
+                alert('Fayl seçin!');
+                return;
+            }
+            if (!file.type.startsWith('image/')) {
+                alert('Yalnız şəkil faylları yüklənə bilər!');
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const data = e.target.result;
+                if (isEditingProof) {
+                    const id = editProofId.value;
+                    const idx = proofItems.findIndex(m => m.id === id);
+                    if (idx !== -1) {
+                        proofItems[idx] = { ...proofItems[idx], data, caption };
+                        saveData(STORAGE_KEY_PROOF, proofItems);
+                        renderAll();
+                        resetProofForm();
+                    }
+                } else {
+                    const newProof = { id: generateId(), data, caption };
+                    proofItems.push(newProof);
+                    saveData(STORAGE_KEY_PROOF, proofItems);
+                    renderAll();
+                    resetProofForm();
+                }
+                alert('✅ Proof uğurla əlavə edildi!');
+            };
+            reader.readAsDataURL(file);
+        });
+
+        document.addEventListener('click', (e) => {
+            const editBtn = e.target.closest('.edit-proof-btn');
+            if (editBtn) {
+                const id = editBtn.dataset.id;
+                const proof = proofItems.find(m => m.id === id);
+                if (!proof) return;
+                isEditingProof = true;
+                editProofId.value = id;
+                proofCaption.value = proof.caption || '';
+                document.getElementById('proofFormTitle').textContent = '✏️ Proof düzənlə';
+                proofForm.classList.add('active');
+                proofFile.value = '';
+            }
+
+            const deleteBtn = e.target.closest('.delete-proof-btn');
+            if (deleteBtn) {
+                const id = deleteBtn.dataset.id;
+                const proof = proofItems.find(m => m.id === id);
+                if (!proof) return;
+                if (confirm(`"${proof.caption || 'Proof'}" silinsin?`)) {
+                    proofItems = proofItems.filter(m => m.id !== id);
+                    saveData(STORAGE_KEY_PROOF, proofItems);
+                    renderAll();
+                }
+            }
+        });
+
+        // ==========================================
+        // RULES CRUD
+        // ==========================================
+        const ruleForm = document.getElementById('ruleForm');
+        const editRuleId = document.getElementById('editRuleId');
+        const ruleTitle = document.getElementById('ruleTitle');
+        const ruleIcon = document.getElementById('ruleIcon');
+        const ruleContent = document.getElementById('ruleContent');
+        const saveRuleBtn = document.getElementById('saveRuleBtn');
+        const cancelRuleFormBtn = document.getElementById('cancelRuleFormBtn');
+        const showAddRuleForm = document.getElementById('showAddRuleForm');
+
+        let isEditingRule = false;
+
+        function resetRuleForm() {
+            editRuleId.value = '';
+            ruleTitle.value = '';
+            ruleIcon.value = '📌';
+            ruleContent.value = '';
+            isEditingRule = false;
+            document.getElementById('ruleFormTitle').textContent = '➕ Yeni qayda';
+            ruleForm.classList.remove('active');
+        }
+
+        showAddRuleForm.addEventListener('click', () => {
+            resetRuleForm();
+            ruleForm.classList.add('active');
+            ruleTitle.focus();
+        });
+
+        cancelRuleFormBtn.addEventListener('click', resetRuleForm);
+
+        saveRuleBtn.addEventListener('click', () => {
+            const title = ruleTitle.value.trim();
+            const content = ruleContent.value.trim();
+            const icon = ruleIcon.value.trim() || '📌';
+            if (!title || !content) {
+                alert('Başlıq və məzmun daxil edin!');
+                return;
+            }
+            if (isEditingRule) {
+                const id = editRuleId.value;
+                const idx = rules.findIndex(r => r.id === id);
+                if (idx !== -1) {
+                    rules[idx] = { ...rules[idx], title, content, icon };
+                    saveData(STORAGE_KEY_RULES, rules);
+                    renderAll();
+                    resetRuleForm();
+                }
+            } else {
+                const newRule = { id: generateId(), title, content, icon };
+                rules.push(newRule);
+                saveData(STORAGE_KEY_RULES, rules);
+                renderAll();
+                resetRuleForm();
+            }
+            alert('✅ Qayda uğurla əlavə edildi!');
+        });
+
+        document.addEventListener('click', (e) => {
+            const editBtn = e.target.closest('.edit-rule-btn');
+            if (editBtn) {
+                const id = editBtn.dataset.id;
+                const rule = rules.find(r => r.id === id);
+                if (!rule) return;
+                isEditingRule = true;
+                editRuleId.value = id;
+                ruleTitle.value = rule.title;
+                ruleIcon.value = rule.icon || '📌';
+                ruleContent.value = rule.content;
+                document.getElementById('ruleFormTitle').textContent = '✏️ Qaydanı düzənlə';
+                ruleForm.classList.add('active');
+                ruleTitle.focus();
+            }
+
+            const deleteBtn = e.target.closest('.delete-rule-btn');
+            if (deleteBtn) {
+                const id = deleteBtn.dataset.id;
+                const rule = rules.find(r => r.id === id);
+                if (!rule) return;
+                if (confirm(`"${rule.title}" silinsin?`)) {
+                    rules = rules.filter(r => r.id !== id);
+                    saveData(STORAGE_KEY_RULES, rules);
+                    renderAll();
+                }
+            }
+        });
+
+        // ==========================================
+        // NAVBAR & HAMBURGER
+        // ==========================================
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // ==========================================
+        // SCROLL REVEAL
+        // ==========================================
+        const fadeEls = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+        fadeEls.forEach(el => observer.observe(el));
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    const top = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ==========================================
+        // INIT
+        // ==========================================
+        renderAll();
+
+        console.log('💜 PurpleUniverse — K-pop merch 🎀');
+        console.log('🔑 Admin girişi: footer-da "Universe" sözünə klikləyin.');
+        console.log('🔑 İstifadəçi adı: puays2026puays, Şifrə: puays2026puays');
+        console.log('🛍️ Məhsulları səbətə əlavə edin və sifariş edin!');
+        console.log('🎵 swim.mp3 avtomatik oxuyur.');
+        console.log('📁 MP3 faylları "mp3/" qovluğunda: swim.mp3, magicshop.mp3, mikrokosmos.mp3');
+        console.log('🏷️ Endirim çubuğu sürüşür və sabitdir.');
+        console.log('🐾 Pişikdən pati emojisi çölə çıxır.');
+        console.log('🎵 Nota emojiləri avtomatik olaraq ürəyin üstündən qalxır.');
+        console.log('❌ Üçbucaq işarəsi tamamilə silindi.');
+    </script>
+</body>
+</html>
