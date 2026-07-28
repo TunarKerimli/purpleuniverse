@@ -1117,64 +1117,6 @@
             padding: 40px 0;
         }
 
-        /* ===== RULES SECTION ===== */
-        .rules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
-        .rule-card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 20px 24px 16px;
-            border: 1px solid var(--card-border);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            cursor: pointer;
-        }
-        .rule-card:hover {
-            box-shadow: var(--shadow-md);
-            border-color: var(--pink-200);
-        }
-        .rule-card .rule-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .rule-card .rule-header .rule-icon {
-            font-size: 1.8rem;
-        }
-        .rule-card .rule-header .rule-title {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--text-primary);
-        }
-        .rule-card .rule-header .rule-toggle {
-            margin-left: auto;
-            color: var(--pink-400);
-            transition: var(--transition);
-        }
-        .rule-card .rule-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.3s ease;
-            padding-top: 0;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-        .rule-card .rule-content p {
-            margin-top: 12px;
-        }
-        .rule-card.open .rule-content {
-            max-height: 600px;
-            padding-top: 12px;
-        }
-        .rule-card.open .rule-toggle {
-            transform: rotate(180deg);
-        }
-
         /* ===== ABOUT ===== */
         .about {
             padding: 80px 0 100px;
@@ -1882,7 +1824,6 @@
             .admin-item { flex-wrap: wrap; gap: 8px; }
             .admin-item .item-actions { width: 100%; justify-content: flex-start; }
             .proof-gallery { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
-            .rules-grid { grid-template-columns: 1fr; }
             .filter-bar .filter-group { gap: 6px; }
             .filter-bar .filter-btn { padding: 4px 12px; font-size: 0.7rem; }
             .music-btn { width: 50px; height: 50px; font-size: 1.6rem; bottom: 16px; right: 16px; }
@@ -2098,20 +2039,6 @@
         </div>
     </section>
 
-    <!-- ===== RULES SECTION ===== -->
-    <section class="media-section" id="rules">
-        <div class="container">
-            <div class="section-title fade-up">
-                <span class="sub"><i class="fas fa-list-ul"></i> Qaydalar</span>
-                <h2>Mağaza <span>Qaydaları</span></h2>
-                <p>Alış-veriş etməzdən əvvəl qaydaları oxuyun.</p>
-            </div>
-            <div class="rules-grid" id="rulesGrid">
-                <!-- rendered by JS -->
-            </div>
-        </div>
-    </section>
-
     <!-- ===== ABOUT ===== -->
     <section class="about" id="about">
         <div class="container">
@@ -2297,7 +2224,6 @@
                 <div class="admin-tabs">
                     <button class="tab-btn active" data-tab="tabProducts">Məhsullar</button>
                     <button class="tab-btn" data-tab="tabProof">Proof</button>
-                    <button class="tab-btn" data-tab="tabRules">Qaydalar</button>
                     <button class="tab-btn" data-tab="tabDiscount">Endirim</button>
                 </div>
                 <div class="admin-tab-content active" id="tabProducts">
@@ -2389,39 +2315,6 @@
                         </div>
                     </div>
                     <div class="admin-item-list" id="adminProofList"></div>
-                </div>
-                <div class="admin-tab-content" id="tabRules">
-                    <div class="admin-toolbar">
-                        <span class="admin-count" id="rulesCount">0 qayda</span>
-                        <button class="btn-primary btn-sm" id="showAddRuleForm" style="padding:8px 20px;">
-                            <i class="fas fa-plus"></i> Qayda əlavə et
-                        </button>
-                    </div>
-                    <div class="admin-form" id="ruleForm">
-                        <h4 id="ruleFormTitle" style="margin-bottom:12px; font-weight:600;">➕ Yeni qayda</h4>
-                        <input type="hidden" id="editRuleId" value="" />
-                        <div class="form-row">
-                            <div>
-                                <label for="ruleTitle">Başlıq *</label>
-                                <input type="text" id="ruleTitle" placeholder="məs: Geri qaytarma" />
-                            </div>
-                            <div>
-                                <label for="ruleIcon">İkon (emoji)</label>
-                                <input type="text" id="ruleIcon" placeholder="📦" value="📌" />
-                            </div>
-                        </div>
-                        <div class="form-row full">
-                            <div>
-                                <label for="ruleContent">Məzmun *</label>
-                                <textarea id="ruleContent" rows="3" placeholder="Qaydanın tam mətni..."></textarea>
-                            </div>
-                        </div>
-                        <div class="form-actions">
-                            <button class="btn-sm btn-save" id="saveRuleBtn"><i class="fas fa-save"></i> Yadda saxla</button>
-                            <button class="btn-sm btn-cancel" id="cancelRuleFormBtn">Ləğv et</button>
-                        </div>
-                    </div>
-                    <div class="admin-item-list" id="adminRulesList"></div>
                 </div>
                 <div class="admin-tab-content" id="tabDiscount">
                     <div class="admin-toolbar">
@@ -2561,7 +2454,188 @@
             category: 'album',
             images: ['uma1.jpg', 'uma2.jpg', 'uma3.jpg'],
             discount: 0
-        }];
+        }, {
+            id: 'p5',
+            name: 'BT21 - BEYOND THE JOURNEY CLEAR PLUSH POUCH KEYRING',
+            price: 45,
+            desc: '1 ədədi 45 AZN · Cookydən başqa hamısı var',
+            icon: '🧸',
+            category: 'peluşlar',
+            images: ['btib1.jpg', 'btib2.jpg', 'btib3.jpg', 'btib4.jpg', 'btib5.jpg', 'btib6.jpg', 'btib7.jpg', 'btib8.jpg'],
+            discount: 0
+        }, {
+            id: 'p6',
+            name: 'BT21 - TODAY\'S FACE HEARTBEAT PLUSH KEYRING',
+            price: 38,
+            desc: '1 ədədi 38 AZN · Bu peluşlardan sadəcə "Mang" qalıb',
+            icon: '🧸',
+            category: 'peluşlar',
+            images: ['today1.jpg'],
+            discount: 0
+        }, {
+            id: 'p7',
+            name: 'BT21 - MININI LEATHER PATCH MIRROR',
+            price: 30,
+            desc: '1 ədədi 30 AZN · Stokda var',
+            icon: '🪞',
+            category: 'merch',
+            images: ['minini.jpg'],
+            discount: 0
+        }, {
+            id: 'p8',
+            name: 'BT21 - HUG ME MININI POUCH',
+            price: 40,
+            desc: '1 ədədi 40 AZN · Stokda var',
+            icon: '🧸',
+            category: 'peluşlar',
+            images: ['hug.jpg'],
+            discount: 0
+        }, {
+            id: 'p9',
+            name: 'BT21 - BUSAN VACANCE PLUSH KEYRING',
+            price: 45,
+            desc: '1 ədədi 45 AZN · Stokda RJ ilə Koya qalıb',
+            icon: '🧸',
+            category: 'peluşlar',
+            images: ['busan.jpg'],
+            discount: 0
+        }, {
+            id: 'p10',
+            name: 'BT21 - ILOVEU MININI PLUSH KEYRING',
+            price: 28,
+            desc: '1 ədədi 28 AZN · Mangdan başqa hamısı var',
+            icon: '🧸',
+            category: 'peluşlar',
+            images: ['ilu.jpg'],
+            discount: 0
+        }, {
+            id: 'p11',
+            name: 'BT21 - BEYOND THE JOURNEY MEDIUM PLUSH',
+            price: 68,
+            desc: '1 ədədi 68 AZN · Stokda var',
+            icon: '🧸',
+            category: 'peluşlar',
+            images: ['medium.jpg'],
+            discount: 0
+        }, {
+            id: 'p12',
+            name: 'BT21 - MININI BEADS PLUSH KEYRING FACE',
+            price: 28,
+            desc: '1 ədədi 28 AZN · Sadəcə Shooky qalıb',
+            icon: '🧸',
+            category: 'peluşlar',
+            images: ['beads.jpg'],
+            discount: 0
+        }, {
+            id: 'p13',
+            name: 'BT21 - BUSAN JAGALCHI MARKET PLUSH KEYRING',
+            price: 48,
+            desc: '1 ədədi 48 AZN · Stokda olanlar: Mang, Koya, RJ, Chimmy',
+            icon: '🧸',
+            category: 'peluşlar',
+            images: ['jagalchi.jpg'],
+            discount: 0
+        }, {
+            id: 'p14',
+            name: 'BT21 - BABY MORE FLUFFY FACE DOLL BAND',
+            price: 32,
+            desc: '1 ədədi 32 AZN · Stokda var',
+            icon: '🧸',
+            category: 'peluşlar',
+            images: ['dollband.jpg'],
+            discount: 0
+        }, {
+            id: 'p15',
+            name: 'BT21 - PEACH HOLIC STRESS BALL',
+            price: 35,
+            desc: '1 ədədi 35 AZN · Stokda var',
+            icon: '🍑',
+            category: 'peluşlar',
+            images: ['saftali.jpg'],
+            discount: 0
+        }, {
+            id: 'p16',
+            name: 'BT21 - MININI HONEYBEE PLUSH TAPE MEASURE KEYRING',
+            price: 38,
+            desc: '1 ədədi 38 AZN · Stokda var',
+            icon: '🐝',
+            category: 'peluşlar',
+            images: ['balarisi.jpg'],
+            discount: 0
+        }, {
+            id: 'p17',
+            name: 'BT21 - MININI BUNSIK MAGNET',
+            price: 25,
+            desc: '1 ədədi 25 AZN · Stokda olanlar: Chimmy, Mang, Cooky',
+            icon: '🧲',
+            category: 'merch',
+            images: ['magnet.jpg'],
+            discount: 0
+        }, {
+            id: 'p18',
+            name: 'BT21 - HUG ME MINI MININI PLUSH KEYRING',
+            price: 38,
+            desc: '1 ədədi 38 AZN · Stokda TaTadan başqa hamısı var',
+            icon: '🧸',
+            category: 'peluşlar',
+            images: ['key.jpg'],
+            discount: 0
+        }, {
+            id: 'p19',
+            name: 'BT21 - MADE BY RJ PLUSH KEYRING',
+            price: 43,
+            desc: '1 ədədi 43 AZN · Stokda RJ-dən başqa hamısı var',
+            icon: '🧸',
+            category: 'peluşlar',
+            images: ['rj.jpg'],
+            discount: 0
+        }, {
+            id: 'p20',
+            name: 'BT21 - MININI FIGURE KEYRING MARINE',
+            price: 25,
+            desc: '1 ədədi 25 AZN · Stokda var',
+            icon: '🔑',
+            category: 'merch',
+            images: ['fiqur.jpg'],
+            discount: 0
+        }, {
+            id: 'p21',
+            name: 'BT21 - BEYOND THE JOURNEY PLUSH KEYRING',
+            price: 45,
+            desc: '1 ədədi 45 AZN · TaTadan başqa hamısı var',
+            icon: '🧸',
+            category: 'peluşlar',
+            images: ['333.jpg'],
+            discount: 0
+        }, {
+            id: 'p22',
+            name: 'BTS - Young Forever',
+            price: 60,
+            desc: 'Alboma daxildir: Cover + Photobook + 2 ədəd CD + Poster + Random Photocard (2 Versiyadır: Day & Night)',
+            icon: '💿',
+            category: 'album',
+            images: ['byf1.jpg', 'byf2.jpg', 'byf3.jpg', 'byf4.jpg', 'byf5.jpg'],
+            discount: 0
+        }, {
+            id: 'p23',
+            name: 'BTS 4th Mini Album - IN THE MOOD',
+            price: 60,
+            desc: 'Daxildir: Photobook + CD + Random Photocard + (2 versiyadır - Blue + Peach)',
+            icon: '💿',
+            category: 'album',
+            images: ['bdma1.jpg', 'bdma2.jpg', 'bdma3.jpg'],
+            discount: 0
+        }, {
+            id: 'p24',
+            name: 'BTS 2nd Special Album - You Never Walk Alone',
+            price: 60,
+            desc: 'Daxildir: Photobook + CD + Random Photocard + 2 Versiya (Left və Right)',
+            icon: '💿',
+            category: 'album',
+            images: ['ynwa1.jpg', 'ynwa2.jpg', 'ynwa3.jpg'],
+            discount: 0
+        }
+    ];
 
         function loadData(key, defaultVal) {
             const stored = localStorage.getItem(key);
@@ -2594,15 +2668,7 @@
         // ==========================================
         let products = loadData(STORAGE_KEY_PRODUCTS, defaultProducts);
         let proofItems = loadData(STORAGE_KEY_PROOF, []);
-        let rules = loadData(STORAGE_KEY_RULES, [
-            { id: 'r1', title: 'Çatdırılma şərtləri', icon: '🚚',
-            content: 'Sifarişlər Bakı daxilində 1-2 iş günü, regionlara 3-5 iş günü ərzində çatdırılır. Çatdırılma haqqı sifarişin məbləğindən asılı olaraq dəyişir.' },
-            { id: 'r2', title: 'Geri qaytarma siyasəti', icon: '🔄',
-                content: 'Məhsul qüsurlu və ya səhv göndərildikdə, qəbzdən sonra 7 gün ərzində geri qaytarma mümkündür. Məhsul orijinal qablaşdırmasında olmalıdır.' },
-            { id: 'r3', title: 'Ödəniş üsulları', icon: '💳',
-                content: 'Hesaba köçürmə, bank kartı ilə ödəniş və nağd (çatdırılma zamanı) ödəniş mümkündür. Bütün ödənişlər təhlükəsizdir.' }
-        ]);
-
+        let rules = loadData(STORAGE_KEY_RULES, []);
         let cart = loadData(STORAGE_KEY_CART, []);
         let activeCategory = 'all';
         let sortOption = 'price-asc';
@@ -3120,66 +3186,15 @@
             document.getElementById('discountCount').textContent = `${discountProducts.length} endirimli məhsul`;
         }
 
-        function renderRules() {
-            const grid = document.getElementById('rulesGrid');
-            if (!grid) return;
-            if (!rules.length) {
-                grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; color:var(--text-secondary); padding:40px 0;">Hələ qayda əlavə edilməyib.</div>`;
-                return;
-            }
-            grid.innerHTML = rules.map(r => `
-                <div class="rule-card" data-id="${r.id}">
-                    <div class="rule-header">
-                        <span class="rule-icon">${r.icon || '📌'}</span>
-                        <span class="rule-title">${r.title}</span>
-                        <span class="rule-toggle"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="rule-content"><p>${r.content}</p></div>
-                </div>
-            `).join('');
-
-            document.querySelectorAll('.rule-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    this.classList.toggle('open');
-                });
-            });
-        }
-
-        function renderAdminRulesList() {
-            const list = document.getElementById('adminRulesList');
-            if (!list) return;
-            if (!rules.length) {
-                list.innerHTML = `<p style="color:var(--text-secondary); padding:16px 0; text-align:center;">Heç bir qayda yoxdur.</p>`;
-                document.getElementById('rulesCount').textContent = '0 qayda';
-                return;
-            }
-            list.innerHTML = rules.map(r => `
-                <div class="admin-item" data-id="${r.id}">
-                    <div class="item-info">
-                        <span class="item-icon">${r.icon || '📌'}</span>
-                        <span class="item-name">${r.title}</span>
-                        <span class="item-detail">${r.content.substring(0, 30)}...</span>
-                    </div>
-                    <div class="item-actions">
-                        <button class="btn-sm btn-edit edit-rule-btn" data-id="${r.id}"><i class="fas fa-pen"></i></button>
-                        <button class="btn-sm btn-delete delete-rule-btn" data-id="${r.id}"><i class="fas fa-trash"></i></button>
-                    </div>
-                </div>
-            `).join('');
-            document.getElementById('rulesCount').textContent = `${rules.length} qayda`;
-        }
-
         function renderAll() {
             renderProducts();
             renderProofGallery();
-            renderRules();
             renderAdminProductList();
             renderAdminProofList();
-            renderAdminRulesList();
+            renderAdminDiscountList();
             renderCart();
             updateDiscountBar();
             updateDiscountMenu();
-            renderAdminDiscountList();
         }
 
         // ==========================================
@@ -3236,7 +3251,6 @@
         const tabContents = {
             tabProducts: document.getElementById('tabProducts'),
             tabProof: document.getElementById('tabProof'),
-            tabRules: document.getElementById('tabRules'),
             tabDiscount: document.getElementById('tabDiscount')
         };
 
@@ -3249,7 +3263,6 @@
             });
             if (tabId === 'tabProducts') renderAdminProductList();
             if (tabId === 'tabProof') renderAdminProofList();
-            if (tabId === 'tabRules') renderAdminRulesList();
             if (tabId === 'tabDiscount') renderAdminDiscountList();
         }
 
@@ -3264,10 +3277,8 @@
             document.body.style.overflow = 'hidden';
             document.getElementById('productForm').classList.remove('active');
             document.getElementById('proofForm').classList.remove('active');
-            document.getElementById('ruleForm').classList.remove('active');
             document.getElementById('editProductId').value = '';
             document.getElementById('editProofId').value = '';
-            document.getElementById('editRuleId').value = '';
             document.getElementById('pImages').value = '';
             document.getElementById('pImageList').innerHTML = '';
             document.getElementById('pImageNames').value = '';
@@ -3294,7 +3305,6 @@
             loginError.classList.remove('show');
             document.getElementById('productForm').classList.remove('active');
             document.getElementById('proofForm').classList.remove('active');
-            document.getElementById('ruleForm').classList.remove('active');
         }
 
         adminTrigger.addEventListener('click', function(e) {
@@ -3332,7 +3342,6 @@
             document.getElementById('loginPass').value = '';
             document.getElementById('productForm').classList.remove('active');
             document.getElementById('proofForm').classList.remove('active');
-            document.getElementById('ruleForm').classList.remove('active');
             closeAdminPanel();
         });
 
@@ -3555,94 +3564,6 @@
         });
 
         // ==========================================
-        // RULES CRUD
-        // ==========================================
-        const ruleForm = document.getElementById('ruleForm');
-        const editRuleId = document.getElementById('editRuleId');
-        const ruleTitle = document.getElementById('ruleTitle');
-        const ruleIcon = document.getElementById('ruleIcon');
-        const ruleContent = document.getElementById('ruleContent');
-        const saveRuleBtn = document.getElementById('saveRuleBtn');
-        const cancelRuleFormBtn = document.getElementById('cancelRuleFormBtn');
-        const showAddRuleForm = document.getElementById('showAddRuleForm');
-
-        let isEditingRule = false;
-
-        function resetRuleForm() {
-            editRuleId.value = '';
-            ruleTitle.value = '';
-            ruleIcon.value = '📌';
-            ruleContent.value = '';
-            isEditingRule = false;
-            document.getElementById('ruleFormTitle').textContent = '➕ Yeni qayda';
-            ruleForm.classList.remove('active');
-        }
-
-        showAddRuleForm.addEventListener('click', () => {
-            resetRuleForm();
-            ruleForm.classList.add('active');
-            ruleTitle.focus();
-        });
-
-        cancelRuleFormBtn.addEventListener('click', resetRuleForm);
-
-        saveRuleBtn.addEventListener('click', () => {
-            const title = ruleTitle.value.trim();
-            const content = ruleContent.value.trim();
-            const icon = ruleIcon.value.trim() || '📌';
-            if (!title || !content) {
-                alert('Başlıq və məzmun daxil edin!');
-                return;
-            }
-            if (isEditingRule) {
-                const id = editRuleId.value;
-                const idx = rules.findIndex(r => r.id === id);
-                if (idx !== -1) {
-                    rules[idx] = { ...rules[idx], title, content, icon };
-                    saveData(STORAGE_KEY_RULES, rules);
-                    renderAll();
-                    resetRuleForm();
-                }
-            } else {
-                const newRule = { id: generateId(), title, content, icon };
-                rules.push(newRule);
-                saveData(STORAGE_KEY_RULES, rules);
-                renderAll();
-                resetRuleForm();
-            }
-            alert('✅ Qayda uğurla əlavə edildi!');
-        });
-
-        document.addEventListener('click', (e) => {
-            const editBtn = e.target.closest('.edit-rule-btn');
-            if (editBtn) {
-                const id = editBtn.dataset.id;
-                const rule = rules.find(r => r.id === id);
-                if (!rule) return;
-                isEditingRule = true;
-                editRuleId.value = id;
-                ruleTitle.value = rule.title;
-                ruleIcon.value = rule.icon || '📌';
-                ruleContent.value = rule.content;
-                document.getElementById('ruleFormTitle').textContent = '✏️ Qaydanı düzənlə';
-                ruleForm.classList.add('active');
-                ruleTitle.focus();
-            }
-
-            const deleteBtn = e.target.closest('.delete-rule-btn');
-            if (deleteBtn) {
-                const id = deleteBtn.dataset.id;
-                const rule = rules.find(r => r.id === id);
-                if (!rule) return;
-                if (confirm(`"${rule.title}" silinsin?`)) {
-                    rules = rules.filter(r => r.id !== id);
-                    saveData(STORAGE_KEY_RULES, rules);
-                    renderAll();
-                }
-            }
-        });
-
-        // ==========================================
         // NAVBAR & HAMBURGER
         // ==========================================
         const navbar = document.getElementById('navbar');
@@ -3701,8 +3622,8 @@
         console.log('📁 MP3 faylları root-da: swim.mp3, magicshop.mp3, mikrokosmos.mp3');
         console.log('🖼️ Hər məhsula şəkil fayllarının adlarını vergüllə yazın.');
         console.log('💰 Endirimli məhsullar səbətdə endirimli qiymətlə hesablanır.');
-        console.log('📦 4 BTS albomu əlavə edildi.');
-        console.log('❌ Stok sistemi tamamilə silindi.');
+        console.log('📦 4 albom + 21 BT21 məhsulu əlavə edildi.');
+        console.log('❌ Qaydalar menyusu silindi.');
     </script>
 </body>
 </html>
