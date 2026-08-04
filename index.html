@@ -2001,6 +2001,7 @@
                     <button class="filter-btn" data-category="peluşlar">🧸 Peluşlar</button>
                     <button class="filter-btn" data-category="merch">👕 Merch</button>
                     <button class="filter-btn" data-category="kartlar">🃏 Kartlar</button>
+                    <button class="filter-btn" data-category="digər">📦 Digər</button>
                 </div>
                 <span class="filter-label" style="margin-left:12px;"><i class="fas fa-sort-amount-down"></i> Sırala:</span>
                 <select id="sortSelect">
@@ -2607,6 +2608,69 @@
             category: 'peluşlar',
             images: ['333.jpg'],
             discount: 0
+        }, {
+            id: 'p22',
+            name: 'G-DRAGON LUCKY BOX (STANDART MODEL)',
+            price: 85,
+            desc: 'G-DRAGON LUCKY BOX(STANDART MODEL)',
+            icon: '✨',
+            category: 'album',
+            images: ['mej1.jpg', 'mej2.jpg', 'mej3.jpg', 'mej4.jpg'],
+            discount: 0
+        }, {
+            id: 'p23',
+            name: 'G-DRAGON LUCKY BOX (PREMIUM MODEL)',
+            price: 195,
+            desc: 'G-DRAGON LUCKY BOX(PREMIUM MODEL)',
+            icon: '✨',
+            category: 'album',
+            images: ['qej1.jpg', 'qej2.jpg', 'qej3.jpg', 'qej4.jpg', 'qej5.jpg'],
+            discount: 0
+        }, {
+            id: 'p24',
+            name: 'BTS - OFFICIAL LIGHT STICK VER.4',
+            price: 150,
+            desc: 'BTS - OFFICIAL LIGHT STICK VER.4',
+            icon: '💜',
+            category: 'merch',
+            images: ['light1.jpg'],
+            discount: 0
+        }, {
+            id: 'p25',
+            name: 'BTS - OFFICIAL LIGHT STICK VER.4 KEYRING',
+            price: 90,
+            desc: 'BTS - OFFICIAL LIGHT STICK VER.4 KEYRING',
+            icon: '🌸',
+            category: 'merch',
+            images: ['keyisiq1.jpg'],
+            discount: 0
+        }, {
+            id: 'p26',
+            name: 'G-DRAGON LUCKY BOX (STANDART MODEL)',
+            price: 85,
+            desc: 'G-DRAGON LUCKY BOX(STANDART MODEL)',
+            icon: '✨',
+            category: 'merch',
+            images: ['mej1.jpg', 'mej2.jpg', 'mej3.jpg', 'mej4.jpg'],
+            discount: 0
+        }, {
+            id: 'p27',
+            name: 'G-DRAGON LUCKY BOX (PREMIUM MODEL)',
+            price: 195,
+            desc: 'G-DRAGON LUCKY BOX(PREMIUM MODEL)',
+            icon: '✨',
+            category: 'merch',
+            images: ['qej1.jpg', 'qej2.jpg', 'qej3.jpg', 'qej4.jpg', 'qej5.jpg'],
+            discount: 0
+        }, {
+            id: 'p28',
+            name: 'BTS - SWIM OFFICIAL MD WIND JACKET (SWIM)',
+            price: 240,
+            desc: 'BTS - SWIM OFFICIAL MD WIND JACKET (SWIM)',
+            icon: '🌸',
+            category: 'merch',
+            images: ['hkofta1.jpg'],
+            discount: 0
         }
     ];
 
@@ -3104,7 +3168,7 @@
             const gallery = document.getElementById('proofGallery');
             if (!gallery) return;
             if (!proofItems.length) {
-                gallery.innerHTML = `<div class="proof-empty">Hələ proof yüklənməyib. Admin panel vasitəsi ilə əlavə edin.</div>`;
+                gallery.innerHTML = `<div class="proof-empty">Hələ proof yüklənməyib.</div>`;
                 return;
             }
             gallery.innerHTML = proofItems.map(m => `
