@@ -1885,111 +1885,65 @@
         .detail-panel::-webkit-scrollbar-thumb:hover {
             background: var(--pink-500);
         }
-                /* ===== QISA BANNER (şəkil solda, mətn sağda) ===== */
-        .promo-banner {
-            margin: 20px 0 30px;
-            border-radius: var(--radius);
-            overflow: hidden;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            box-shadow: var(--shadow);
-        }
-
-        .promo-banner-inner {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            padding: 16px 24px;
-            flex-wrap: wrap;
-        }
-
-        .promo-image {
-            flex: 0 0 325px;
-            height: 325px;
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            background: var(--gray-100);
-            flex-shrink: 0;
-        }
-
-        .promo-image img {
+        /* ===== HERO PROMO ŞƏKİL (animasiya ilə) ===== */
+        .hero-promo-image {
             width: 100%;
-            height: 100%;
+            max-width: 280px;
+            height: auto;
+            aspect-ratio: 1/1;
+            border-radius: var(--radius-sm);
             object-fit: cover;
             display: block;
+            margin: 0 auto 12px;
+            box-shadow: var(--shadow-md);
+            animation: promoFadeUp 0.9s ease forwards;
+            opacity: 0; /* əvvəlcə gizli */
         }
 
-        .promo-text {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-width: 180px;
+        @keyframes promoFadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
-        .promo-badge {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--pink-600);
-            background: var(--pink-100);
-            padding: 4px 16px;
-            border-radius: 40px;
-            width: fit-content;
-            margin-bottom: 4px;
-        }
-
-        .promo-title {
+        .yellow-merch {
             font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--text-primary);
-            margin: 0 0 2px;
-        }
-        .promo-title span {
-            color: var(--pink-600);
-        }
-
-        .promo-desc {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            margin: 0;
-            line-height: 1.4;
+            color: #f5c842; /* sarı rəng */
+            text-shadow: 0 2px 12px rgba(245, 200, 66, 0.3);
+            margin-top: -4px;
+            margin-bottom: 8px;
         }
 
-        @media (max-width: 700px) {
-            .promo-banner-inner {
-                flex-direction: column;
-                align-items: center;
-                padding: 16px;
-                gap: 16px;
-            }
-            .promo-image {
-                flex: 0 0 auto;
-                width: 280px;
-                height: 280px;
-            }
-            .promo-text {
-                align-items: center;
-                text-align: center;
-            }
-            .promo-title {
-                font-size: 1.8rem;
-            }
+        /* Kartın ölçüsünü bir az böyük saxlayaq */
+        .floating-card {
+            padding: 30px 24px 28px;
         }
 
-        @media (max-width: 480px) {
-            .promo-image {
-                width: 200px;
-                height: 200px;
+        /* Mobil üçün tənzimləmə */
+        @media (max-width: 600px) {
+            .hero-promo-image {
+                max-width: 200px;
             }
-            .promo-title {
+            .yellow-merch {
                 font-size: 1.6rem;
             }
-            .promo-desc {
-                font-size: 1.2rem;
+            .floating-card {
+                padding: 20px 16px;
+            }
+        }
+        @media (max-width: 420px) {
+            .hero-promo-image {
+                max-width: 160px;
+            }
+            .yellow-merch {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -2058,11 +2012,10 @@
                     </a>
                 </div>
             </div>
-            <div class="hero-image">
+             <div class="hero-image">
                 <div class="floating-card">
-                    <span class="emoji-big">💜</span>
-                    <h3>PurpleUniverse</h3>
-                    <p class="tagline">✨ K-pop &amp; Korean culture</p>
+                    <img src="afisa.jpg" alt="PurpleUniverse promosyon" class="hero-promo-image" />
+                    <h3 class="yellow-merch">Yellow Merch</h3>
                     <div class="divider"></div>
                     <div class="stats">
                         <div class="stat-item">
@@ -2090,19 +2043,6 @@
                 <span class="sub"><i class="fas fa-gem"></i> Kolleksiya</span>
                 <h2>K-pop <span>Merch</span></h2>
                 <p>Orijinal K-pop albomları, posterlər, peluşlar və xüsusi dəstlər.</p>
-            </div>
-            <!-- ===== PROMO BANNER (şəkil solda, mətn sağda) ===== -->
-            <div class="promo-banner fade-up">
-                <div class="promo-banner-inner">
-                    <div class="promo-image">
-                        <img src="afisa.jpg" alt="PurpleUniverse promosyon" />
-                    </div>
-                    <div class="promo-text">
-                        <span class="promo-badge">🔥 Yeni kolleksiya</span>
-                        <h3 class="promo-title">K-pop <span>Merch</span></h3>
-                        <p class="promo-desc">Orijinal məhsullar, endirimlər, sürətli çatdırılma</p>
-                    </div>
-                </div>
             </div>
             <!-- Discount Menu -->
             <div class="discount-menu fade-up" id="discountMenu">
