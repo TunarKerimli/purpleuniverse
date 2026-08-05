@@ -1946,6 +1946,77 @@
                 font-size: 1.3rem;
             }
         }
+                /* ===== RIBBON (bir azcıq daha sağa) ===== */
+        .floating-card {
+            position: relative;
+            overflow: visible;
+        }
+
+        .ribbon-wrapper {
+            position: absolute;
+            top: 50px;          /* eyni qalır */
+            right: -28px;       /* -22 → -28 (bir az daha sağa) */
+            z-index: 20;
+            overflow: visible;
+        }
+
+        .ribbon {
+            display: inline-block;
+            background: #f5c842;
+            color: #1a0a0a;
+            font-weight: 800;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 5px 22px 5px 16px;
+            transform: rotate(42deg) translate(0px, 18px);  /* eyni qalır */
+            transform-origin: top right;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            white-space: nowrap;
+            border-radius: 0;
+            line-height: 1.2;
+        }
+
+        /* Etiketin altına kiçik kölgə üçün */
+        .ribbon::before,
+        .ribbon::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            border-style: solid;
+            border-color: #b8942a transparent transparent transparent;
+            border-width: 4px 4px 0 0;
+        }
+        .ribbon::after {
+            right: 0;
+            border-width: 4px 0 0 4px;
+            border-color: #b8942a transparent transparent transparent;
+        }
+
+        /* Mobil üçün kiçilt */
+        @media (max-width: 600px) {
+            .ribbon-wrapper {
+                top: 40px;
+                right: -18px;   /* -14 → -18 */
+            }
+            .ribbon {
+                font-size: 0.5rem;
+                padding: 4px 16px 4px 12px;
+                transform: rotate(42deg) translate(0px, 14px);
+            }
+        }
+
+        @media (max-width: 420px) {
+            .ribbon-wrapper {
+                top: 32px;
+                right: -12px;   /* -10 → -12 */
+            }
+            .ribbon {
+                font-size: 0.45rem;
+                padding: 3px 12px 3px 8px;
+                transform: rotate(42deg) translate(0px, 12px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -2013,25 +2084,31 @@
                 </div>
             </div>
              <div class="hero-image">
-                <div class="floating-card">
-                    <img src="afisa.jpg" alt="PurpleUniverse promosyon" class="hero-promo-image" />
-                    <h3 class="yellow-merch">Yellow Merch</h3>
-                    <div class="divider"></div>
-                    <div class="stats">
-                        <div class="stat-item">
-                            <div class="num" id="statProducts">0</div>
-                            <div class="label">Məhsul</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="num">100%</div>
-                            <div class="label">Orijinal</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="num">24/7</div>
-                            <div class="label">Dəstək</div>
-                        </div>
-                    </div>
-                </div>
+    <div class="floating-card">
+        <!-- 🔥 YENİ RIBBON (çəpinə etiket) -->
+        <div class="ribbon-wrapper">
+            <span class="ribbon">💛YENİ KOLLEKSİYA✨</span>
+        </div>
+
+        <img src="afisa.jpg" alt="PurpleUniverse promosyon" class="hero-promo-image" />
+        <h3 class="yellow-merch">Yellow Merch</h3>
+        <div class="divider"></div>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="num" id="statProducts">0</div>
+                <div class="label">Məhsul</div>
+            </div>
+            <div class="stat-item">
+                <div class="num">100%</div>
+                <div class="label">Orijinal</div>
+            </div>
+            <div class="stat-item">
+                <div class="num">24/7</div>
+                <div class="label">Dəstək</div>
+            </div>
+        </div>
+    </div>
+</div>
             </div>
         </div>
     </section>
