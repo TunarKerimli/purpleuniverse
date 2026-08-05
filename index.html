@@ -2766,34 +2766,41 @@
             musicNotes.innerHTML = '';
         }
 
-        function playSong(index) {
-            if (songFiles.length === 0) {
-                songName.textContent = 'Mahnı yoxdur';
-                return;
-            }
-            const file = songFiles[index];
-            const displayName = file.split('/').pop().replace('.mp3', '').replace(/_/g, ' ').replace(/\b\w/g, l => l
-                .toUpperCase());
-            audio.src = file;
-            audio.load();
-            audio.play()
-                .then(() => {
-                    isPlaying = true;
-                    songName.textContent = displayName;
-                    nowPlaying.classList.add('show');
-                    setTimeout(() => {
-                        nowPlaying.classList.remove('show');
-                    }, 3000);
-                    startNotes();
-                })
-                .catch(err => {
-                    console.warn('Audio error:', err);
-                    setTimeout(() => {
-                        currentSongIndex = (currentSongIndex + 1) % songFiles.length;
-                        playSong(currentSongIndex);
-                    }, 1500);
-                });
-        }
+       function playSong(index) {
+    if (songFiles.length === 0) {
+        songName.textContent = 'Mahnı yoxdur';
+        return;
+    }
+    const file = songFiles[index];
+    const displayName = file.split('/').pop().replace('.mp3', '').replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    audio.src = file;
+    audio.load();
+
+    // Səssiz rejimdə oynatmağa çalış
+    audio.muted = true;
+    audio.play()
+        .then(() => {
+            // 1 saniyə sonra səsi aç
+            setTimeout(() => {
+                audio.muted = false;
+            }, 1000);
+            isPlaying = true;
+            songName.textContent = displayName;
+            nowPlaying.classList.add('show');
+            setTimeout(() => {
+                nowPlaying.classList.remove('show');
+            }, 3000);
+            startNotes();
+        })
+        .catch(err => {
+            console.warn('Audio oynatıla bilmədi:', err);
+            // Uğursuz olarsa, növbəti mahnıya keç (və ya dayan)
+            setTimeout(() => {
+                currentSongIndex = (currentSongIndex + 1) % songFiles.length;
+                playSong(currentSongIndex);
+            }, 1500);
+        });
+}
 
         window.addEventListener('load', function() {
             setTimeout(() => {
