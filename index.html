@@ -3144,38 +3144,94 @@
 
         // ==========================================
         // CHECKOUT - Instagram
-        // ==========================================
-        function checkout() {
-            if (cart.length === 0) {
-                alert('Səbət boşdur!');
-                return;
+        async function checkout() {
+
+    if (cart.length === 0) {
+        alert('Səbət boşdur!');
+        return;
+    }
+
+    const customerName = prompt('Adınız və soyadınız:');
+
+    if (!customerName || !customerName.trim()) {
+        alert('Ad və soyad daxil edilməlidir.');
+        return;
+    }
+
+    const customerPhone = prompt('Telefon nömrəniz:');
+
+    if (!customerPhone || !customerPhone.trim()) {
+        alert('Telefon nömrəsi daxil edilməlidir.');
+        return;
+    }
+
+    const customerEmail =
+        prompt('Email ünvanınız (istəyə bağlıdır):') || '';
+
+    const orderItems = cart.map(item => ({
+        id: item.id,
+        quantity: item.quantity
+    }));
+
+    try {
+
+        const response = await fetch(
+            'puadmin/api/create-order.php',
+            {
+                method: 'POST',
+
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+
+                body: JSON.stringify({
+                    customer_name: customerName.trim(),
+                    customer_email: customerEmail.trim(),
+                    customer_phone: customerPhone.trim(),
+                    items: orderItems
+                })
             }
-            const items = cart.map(item => {
-                const product = products.find(p => p.id === item.id);
-                const effPrice = getEffectivePrice(product);
-                return `${product.icon || '💿'} ${product.name} (${item.quantity} ədəd) - ${(effPrice * item.quantity).toFixed(2)} AZN`;
-            }).join('\n');
-            const total = cart.reduce((sum, item) => {
-                const product = products.find(p => p.id === item.id);
-                return sum + (product ? getEffectivePrice(product) * item.quantity : 0);
-            }, 0);
+        );
 
-            const message =
-                `🛍️ *Sifarişim* 🛍️\n\n${items}\n\n💰 *Ümumi:* ${total.toFixed(2)} AZN\n\n🙏 Təşəkkürlər! 💜 PurpleUniverse\n\n📦 Sifarişinizi gözləyirik!`;
+        const data = await response.json();
 
-            navigator.clipboard.writeText(message).then(() => {
-                alert('✅ Sifariş məlumatları kopyalandı! İndi Instagram-da bizə yazın.');
-                window.open('https://www.instagram.com/purpleuniversebaku/', '_blank');
-            }).catch(() => {
-                window.open('https://www.instagram.com/purpleuniversebaku/', '_blank');
-            });
-
-            cart = [];
-            saveData(STORAGE_KEY_CART, cart);
-            renderCart();
-            renderProducts();
-            document.getElementById('cartOverlay').classList.remove('active');
+        if (!response.ok || !data.success) {
+            throw new Error(
+                data.message || 'Sifariş yaradılmadı.'
+            );
         }
+
+        alert(
+            '✅ Sifarişiniz qəbul edildi!\n\n' +
+            'Sifariş № #' + data.order_id + '\n' +
+            'Ümumi: ' + data.total + ' AZN\n\n' +
+            'Təşəkkür edirik! 💜'
+        );
+
+        cart = [];
+
+        saveData(STORAGE_KEY_CART, cart);
+
+        renderCart();
+        renderProducts();
+
+        const cartOverlay =
+            document.getElementById('cartOverlay');
+
+        if (cartOverlay) {
+            cartOverlay.classList.remove('active');
+        }
+
+    } catch (error) {
+
+        console.error('Checkout error:', error);
+
+        alert(
+            '❌ Sifariş göndərilmədi.\n\n' +
+            error.message
+        );
+    }
+}
 
         // ==========================================
         // RENDER FUNCTIONS
