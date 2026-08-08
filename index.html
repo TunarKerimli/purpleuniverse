@@ -2875,7 +2875,47 @@
         // ==========================================
         // STATE
         // ==========================================
-        let products = loadData(STORAGE_KEY_PRODUCTS, defaultProducts);
+        let products = [];
+
+        async function loadProductsFromAPI() {
+    try {
+        const response = await fetch(
+            'https://puadminsiteprivate.onrender.com/api/products.php'
+        );
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+            throw new Error(
+                data.message || 'Məhsullar yüklənmədi.'
+            );
+        }
+
+        products = data.products.map(product => ({
+            ...product,
+            id: String(product.id),
+            desc: product.description || '',
+            icon: '💿',
+            images: product.images || [],
+            discount: product.discount || 0
+        }));
+
+        loadProductsFromAPI();
+        renderProducts();
+
+    } catch (error) {
+        console.error('Products API error:', error);
+
+        products = [];
+
+        renderProducts();
+
+        console.error(
+            'Purple Universe məhsulları API-dən yüklənmədi.'
+        );
+    }
+}
+
         let proofItems = loadData(STORAGE_KEY_PROOF, []);
         let rules = loadData(STORAGE_KEY_RULES, []);
         let cart = loadData(STORAGE_KEY_CART, []);
